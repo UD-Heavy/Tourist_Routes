@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Test</string>
-    <string name="button1">Попался мамонт</string>
+    <string name="lets_start"><b>Давай начнем!</b></string>
+    <string name="login"><b>Вход</b></string>
+    <string name="text"><b>Создай своё путешествие</b></string>
+    <string name="login_field_text"><b>Логин</b></string>
+    <string name="password_field_text"><b>Пароль</b></string>
+    <string name="forgot_pass"><b>Забыли пароль?</b></string>
+    <string name="enter_text"><b>Войти</b></string>
+    <string name="register_text"><b>Создать аккаунт</b></string>
+    <string name="or"><b>или</b></string>
+    <string name="register_label"><b>Регистрация</b></string>
+    <string name="email"><b>Почта</b></string>
+    <string name="register_text2"><b>Создать</b></string>
+    <string name="repeat_pass"><b>Повторите пароль</b></string>
+    <string name="block"><b>1</b></string>
 </resources>
