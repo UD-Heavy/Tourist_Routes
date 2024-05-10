@@ -13,5 +13,11 @@
     <string name="email"><b>Почта</b></string>
     <string name="register_text2"><b>Создать</b></string>
     <string name="repeat_pass"><b>Повторите пароль</b></string>
+    <string name="mainTitle"><b>Туры и новости</b></string>
+    <string name="madetour"><b>Готовые туры</b></string>
+
+
+
+
     <string name="block"><b>1</b></string>
 </resources>
