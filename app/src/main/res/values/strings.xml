@@ -9,4 +9,9 @@
     <string name="enter_text"><b>Войти</b></string>
     <string name="register_text"><b>Создать аккаунт</b></string>
     <string name="or"><b>или</b></string>
+    <string name="register_label"><b>Регистрация</b></string>
+    <string name="email"><b>Почта</b></string>
+    <string name="register_text2"><b>Создать</b></string>
+    <string name="repeat_pass"><b>Повторите пароль</b></string>
+    <string name="block"><b>1</b></string>
 </resources>
