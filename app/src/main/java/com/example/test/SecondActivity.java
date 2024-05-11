@@ -6,9 +6,6 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -23,12 +20,8 @@ public class SecondActivity extends AppCompatActivity {
         Button button1 = findViewById(R.id.do_Register);
 
         // обработка события при нажатии на кнопку
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //setContentView(R.layout.activity_main);
-                finish();
-            }
+        button1.setOnClickListener(v -> {
+            finish();
         });
     }
 
