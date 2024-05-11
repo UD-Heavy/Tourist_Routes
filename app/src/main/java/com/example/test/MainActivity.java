@@ -15,13 +15,17 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    // обработка события при создании окна
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        // объявление объектов для работы
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.buttonRegister);
+
+        // обработка события при нажатии на кнопку
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,5 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }
