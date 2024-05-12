@@ -14,21 +14,25 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class SecondActivity extends AppCompatActivity {
+
     EditText logintext;
     EditText password_text;
     EditText email_text;
     EditText repeat_pass_text;
+
+
+    // обработка события при создании окна
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.register_window);
+
+        // объявление объектов для работы
         Button button1 = findViewById(R.id.do_Register);
+
         logintext = (EditText) findViewById(R.id.login_text);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +51,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
             }
+
         });
     }
     @Override
