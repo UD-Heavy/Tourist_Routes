@@ -12,7 +12,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-1dp">
+    tools:layout_editor_absoluteY="0dp">
 
     <View
         android:id="@+id/view"
@@ -40,7 +40,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/img" />
+            app:srcCompat="@drawable/kurgan1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -277,7 +277,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:hint="@string/password_field_text"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"/>
         </RelativeLayout>
     </LinearLayout>
 

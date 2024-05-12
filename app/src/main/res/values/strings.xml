@@ -13,5 +13,17 @@
     <string name="email"><b>Почта</b></string>
     <string name="register_text2"><b>Создать</b></string>
     <string name="repeat_pass"><b>Повторите пароль</b></string>
+    <string name="mainTitle"><b>Туры и новости</b></string>
+    <string name="readytour"><b>Готовые туры</b></string>
+    <string name="alltour_button"><b>Все туры</b></string>
+    <string name="newslabel"><b>Новости и события</b></string>
+    <string name="allnews_button"><b>Все новости</b></string>
+    <string name="first_card"><b>Исторический центр: тур по церквям</b></string>
+    <string name="second_card"><b>Культурные центры Кургана</b></string>
+    <string name="more_news"><b>Больше новостей</b></string>
+
+
+
+
     <string name="block"><b>1</b></string>
 </resources>

@@ -14,13 +14,11 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-1dp">
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#60000000" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
@@ -40,7 +38,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/img" />
+            app:srcCompat="@drawable/kurgan1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,6 +83,8 @@
             android:text="@string/register_label"
             android:textColor="#333333"
             android:textSize="30sp" />
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -211,7 +211,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:hint="@string/repeat_pass"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"/>
         </RelativeLayout>
     </LinearLayout>
 
