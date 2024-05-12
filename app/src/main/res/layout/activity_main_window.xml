@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
                 android:id="@id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -27,18 +27,17 @@
                 android:fontFamily="@font/inter_extrabold"
                 android:text="@string/mainTitle"
                 android:textColor="#333333"
-                android:textSize="30sp" />
+                android:textSize="32sp" />
 
             <ImageButton
                 android:id="@+id/circle1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignTop="@id/title"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@id/title"
-                android:layout_toStartOf="@id/title"
+                android:layout_marginStart="17dp"
+                android:layout_marginLeft="17dp"
+                android:layout_alignParentLeft="true"
                 android:background="@drawable/group_89"
                 android:contentDescription="@string/block"
                 android:padding="10dp"
@@ -50,37 +49,106 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
+                android:id="@+id/parentRelative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <EditText
+
+                <TextView
                     android:id="@+id/ready_tour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginStart="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_extrabold"
-                    android:text="@string/madetour"
+                    android:text="@string/readytour"
                     android:textColor="#333333"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
+
                 <Button
-                    android:id="@+id/buttonEnter"
-                    android:layout_width="140dp"
-                    android:layout_height="20dp"
-                    android:layout_alignBaseline="@id/ready_tour"
-                    android:layout_toRightOf="@id/ready_tour"
-                    android:layout_toEndOf="@id/ready_tour"
+                    android:id="@+id/all_tours"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:padding="0dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/inter_extrabold"
-                    android:text="@string/enter_text"
-                    android:textSize="20sp"
+                    android:text="@string/alltour_button"
+                    android:textColor="#333333"
+                    android:textSize="17sp"
                     app:backgroundTint="#E7E5E5" />
+
             </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tours_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:scrollbars="horizontal"/>
+                <!--android:scrollbarThumbHorizontal="@drawable/scroll"-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:text="@string/newslabel"
+                    android:textColor="#333333"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/all_news"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:padding="0dp"
+                    android:text="@string/allnews_button"
+                    android:textColor="#333333"
+                    android:textSize="17sp"
+                    app:backgroundTint="#E7E5E5" />
+
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/news_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                android:layout_marginTop="0dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:fadeScrollbars="true"
+                style="@style/custom_scroll"/>
+
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
