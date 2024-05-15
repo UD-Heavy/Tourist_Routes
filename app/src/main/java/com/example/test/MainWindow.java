@@ -19,6 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.test.model.MyData;
+
 import java.util.ArrayList;
 
 public class MainWindow extends AppCompatActivity {
@@ -26,28 +28,27 @@ public class MainWindow extends AppCompatActivity {
     ArrayList<MyData> dataSource;
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
     MainWindow.MyRvAdapter adapterRV_tour, adapterRV_news;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_window);
+
         rv = findViewById(R.id.tours_view);
         rv1 = findViewById(R.id.news_view);
+
         dataSource = new ArrayList<>();
         dataSource.add(new MyData(getResources().getString(R.string.first_card), R.drawable.kurgan_ts));
         dataSource.add(new MyData(getResources().getString(R.string.second_card), R.drawable.dk_mashin));
-        /*dataSource.add("World");
-        dataSource.add("To");
-        dataSource.add("The");
-        dataSource.add("Code");
-        dataSource.add("City");
-        dataSource.add("******")*/
 
         linearLayoutManager = new LinearLayoutManager(MainWindow.this, LinearLayoutManager.HORIZONTAL, false);
         linearLayoutManager1 = new LinearLayoutManager(MainWindow.this, LinearLayoutManager.HORIZONTAL, false);
+
         adapterRV_tour = new MyRvAdapter(dataSource);
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapterRV_tour);
+
         adapterRV_news = new MyRvAdapter(dataSource);
         rv1.setLayoutManager(linearLayoutManager1);
         rv1.setAdapter(adapterRV_news);
@@ -59,6 +60,7 @@ public class MainWindow extends AppCompatActivity {
         });
 
     }
+
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_CARD = 0;
         private static final int TYPE_CARD_WITH_BUTTON = 1;
@@ -72,6 +74,7 @@ public class MainWindow extends AppCompatActivity {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
             if (viewType == TYPE_CARD) {
                 View view = inflater.inflate(R.layout.list_item_card_view, parent, false);
                 return new CardViewHolder(view);
@@ -98,16 +101,15 @@ public class MainWindow extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return data.size()+1;
+            return data.size() + 1;
         }
 
         @Override
         public int getItemViewType(int position) {
             // Определите, является ли элемент последним
-            if (position != data.size()){
+            if (position != data.size()) {
                 return TYPE_CARD;
-            }else
-            {
+            } else {
                 return TYPE_CARD_WITH_BUTTON;
             }
             //return position == data.size() - 1 ? TYPE_CARD_WITH_BUTTON : TYPE_CARD;
@@ -145,21 +147,22 @@ public class MainWindow extends AppCompatActivity {
             }
         }
     }
-    public static class MyData {
-        private final String title;
-        private final int imageResource;
 
-        public MyData(String title, int imageResource) {
-            this.title = title;
-            this.imageResource = imageResource;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public int getImageResource() {
-            return imageResource;
-        }
-    }
+//    public static class MyData {
+//        private final String title;
+//        private final int imageResource;
+//
+//        public MyData(String title, int imageResource) {
+//            this.title = title;
+//            this.imageResource = imageResource;
+//        }
+//
+//        public String getTitle() {
+//            return title;
+//        }
+//
+//        public int getImageResource() {
+//            return imageResource;
+//        }
+//    }
 }

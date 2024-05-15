@@ -39,12 +39,9 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //setContentView(R.layout.activity_main);
-                if (TextUtils.isEmpty(logintext.getText().toString()))
-                {
+                if (TextUtils.isEmpty(logintext.getText().toString())) {
                     Toast.makeText(SecondActivity.this, "Не все поля заполнены", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     finish();
                     Toast.makeText(SecondActivity.this, "Пользователь зарегистрирован!", Toast.LENGTH_SHORT).show();
                 }
@@ -54,6 +51,8 @@ public class SecondActivity extends AppCompatActivity {
 
         });
     }
+
+    // что делает метод
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         // Переопределяем метод dispatchTouchEvent для скрытия клавиатуры при касании пустого места
