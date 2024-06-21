@@ -4,8 +4,6 @@
 /.idea/*
 /.idea
 /.idea/caches
-/.idea/*
-/.idea
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
@@ -17,3 +15,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/*
