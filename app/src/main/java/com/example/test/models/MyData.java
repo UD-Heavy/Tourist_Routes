@@ -1,4 +1,4 @@
-package com.example.test.model;
+package com.example.test.models;
 
 public class MyData {
     private final String title;

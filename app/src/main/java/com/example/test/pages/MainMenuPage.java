@@ -1,6 +1,8 @@
-package com.example.test;
+package com.example.test.pages;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -19,21 +22,23 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.test.model.MyData;
+import com.example.test.R;
+import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
-public class MainWindow extends AppCompatActivity {
+public class MainMenuPage extends AppCompatActivity {
     RecyclerView rv, rv1;
     ArrayList<MyData> dataSource;
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
-    MainWindow.MyRvAdapter adapterRV_tour, adapterRV_news;
+    MainMenuPage.MyRvAdapter adapterRV_tour, adapterRV_news;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main_window);
+        setContentView(R.layout.main_menu_page);
 
         rv = findViewById(R.id.tours_view);
         rv1 = findViewById(R.id.news_view);
@@ -42,8 +47,8 @@ public class MainWindow extends AppCompatActivity {
         dataSource.add(new MyData(getResources().getString(R.string.first_card), R.drawable.kurgan_ts));
         dataSource.add(new MyData(getResources().getString(R.string.second_card), R.drawable.dk_mashin));
 
-        linearLayoutManager = new LinearLayoutManager(MainWindow.this, LinearLayoutManager.HORIZONTAL, false);
-        linearLayoutManager1 = new LinearLayoutManager(MainWindow.this, LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager = new LinearLayoutManager(MainMenuPage.this, LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager1 = new LinearLayoutManager(MainMenuPage.this, LinearLayoutManager.HORIZONTAL, false);
 
         adapterRV_tour = new MyRvAdapter(dataSource);
         rv.setLayoutManager(linearLayoutManager);
@@ -76,10 +81,10 @@ public class MainWindow extends AppCompatActivity {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
             if (viewType == TYPE_CARD) {
-                View view = inflater.inflate(R.layout.list_item_card_view, parent, false);
+                View view = inflater.inflate(R.layout.list_item_main_menu_card, parent, false);
                 return new CardViewHolder(view);
             } else {
-                View view = inflater.inflate(R.layout.list_item_card_view_button, parent, false);
+                View view = inflater.inflate(R.layout.list_item_main_menu_button, parent, false);
                 return new CardWithButtonViewHolder(view);
 
             }

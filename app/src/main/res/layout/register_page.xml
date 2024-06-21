@@ -11,7 +11,7 @@
 
 
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".pages.LoginPage"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-1dp">
     <View
@@ -136,10 +136,10 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/inter_extrabold"
 
+                android:onClick="onClickRegister"
                 android:text="@string/register_text2"
                 android:textSize="20sp"
-                app:backgroundTint="#484C60"
-                android:onClick="@{handler.onButtonClick}" />
+                app:backgroundTint="#484C60" />
 
 
 

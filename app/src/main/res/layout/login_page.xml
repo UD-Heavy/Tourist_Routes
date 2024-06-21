@@ -10,7 +10,7 @@
 
 
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".pages.LoginPage"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
 
