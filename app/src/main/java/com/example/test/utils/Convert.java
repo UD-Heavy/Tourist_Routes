@@ -1,5 +1,10 @@
 package com.example.test.utils;
 
-public class Convert {
+import android.media.Image;
 
+public class Convert {
+    public static Image convertBase64ToImage(String base){
+
+        return null;
+    }
 }

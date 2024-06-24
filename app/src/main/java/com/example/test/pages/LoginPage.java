@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -28,21 +29,25 @@ public class LoginPage extends AppCompatActivity {
         init();
 
         if (sharedPreferences.getString("Acc", "123").equals("true")) {
-            startActivity(mainMenuPage);        }
+            startActivity(mainMenuPage);
+        }
     }
 
     private void init() {
+        // проверка, нужно ли создавать аккаунт
+        sharedPreferences = getSharedPreferences("Account", Context.MODE_PRIVATE);
+
         mainMenuPage = new Intent(LoginPage.this, MainMenuPage.class);
+
         registrationButton = findViewById(R.id.buttonRegister);
         loginButton = findViewById(R.id.buttonEnter);
-        sharedPreferences = getSharedPreferences("Account", Context.MODE_PRIVATE); // проверка, нужно ли создавать аккаунт
     }
 
-    public void onClickLogin() {
+    public void onClickLogin(View v) {
         startActivity(mainMenuPage);
     }
 
-    public void onClickRegister() {
+    public void onClickRegistration(View v){
         startActivity(new Intent(LoginPage.this, RegistrationPage.class));
     }
 }

@@ -1,8 +1,5 @@
 package com.example.test.pages;
 
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -43,6 +39,11 @@ public class MainMenuPage extends AppCompatActivity {
         rv = findViewById(R.id.tours_view);
         rv1 = findViewById(R.id.news_view);
 
+        // соединение с бд, получаем список объектов
+        // ArrayList<Document> DBList = dbRepositories.getAll();
+        // for (MyData data : DBList){
+        //      dataSourse.add(data.get("title"), convertBase64ToImage(data.get("image")))
+        // }
         dataSource = new ArrayList<>();
         dataSource.add(new MyData(getResources().getString(R.string.first_card), R.drawable.kurgan_ts));
         dataSource.add(new MyData(getResources().getString(R.string.second_card), R.drawable.dk_mashin));
@@ -65,6 +66,7 @@ public class MainMenuPage extends AppCompatActivity {
         });
 
     }
+
 
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_CARD = 0;
@@ -152,22 +154,4 @@ public class MainMenuPage extends AppCompatActivity {
             }
         }
     }
-
-//    public static class MyData {
-//        private final String title;
-//        private final int imageResource;
-//
-//        public MyData(String title, int imageResource) {
-//            this.title = title;
-//            this.imageResource = imageResource;
-//        }
-//
-//        public String getTitle() {
-//            return title;
-//        }
-//
-//        public int getImageResource() {
-//            return imageResource;
-//        }
-//    }
 }

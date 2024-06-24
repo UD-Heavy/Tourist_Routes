@@ -1,8 +1,7 @@
 package com.example.test.pages;
 
-import static com.example.test.utils.RegistrationValidator.checkEmail;
+import static com.example.test.utils.RegistrationValidator.emailValidator;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,6 +28,7 @@ public class RegistrationPage extends AppCompatActivity {
     private EditText emailText;
     private EditText passwordConfirmText;
     private Button registerButton;
+
     private String login;
     private String email;
     private String password;
@@ -93,7 +93,7 @@ public class RegistrationPage extends AppCompatActivity {
             // создание аккаунта
         else {
             try {
-                checkEmail(email); // валидация почты
+                emailValidator(email); // валидация почты
                 User user = new User(login, email, password);
                 editSharedPreferences();
                 startActivity(new Intent(RegistrationPage.this, MainMenuPage.class));
@@ -103,9 +103,10 @@ public class RegistrationPage extends AppCompatActivity {
         }
     }
 
-    public void editSharedPreferences(){
+    public void editSharedPreferences() {
         sp.putString("Acc", "true").commit();
         sp.putString("Login", login).commit();
+        sp.putString("Email", email).commit();
     }
 
 }

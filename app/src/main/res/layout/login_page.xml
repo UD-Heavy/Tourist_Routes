@@ -145,7 +145,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:onClick="onClickRegister"
+                android:onClick="onClickRegistration"
                 android:text="@string/register_text"
                 android:textSize="20sp"
                 app:backgroundTint="#484C60" />
