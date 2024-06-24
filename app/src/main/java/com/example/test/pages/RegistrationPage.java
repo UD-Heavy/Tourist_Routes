@@ -21,8 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.test.R;
 import com.example.test.exceptions.EmailNotCorrectException;
 import com.example.test.models.User;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 public class RegistrationPage extends AppCompatActivity {
     private EditText loginText;
@@ -30,13 +29,10 @@ public class RegistrationPage extends AppCompatActivity {
     private EditText emailText;
     private EditText passwordConfirmText;
     private Button registerButton;
-
     private String login;
     private String email;
     private String password;
     private String passwordConfirm;
-    private DatabaseReference mDataBase;
-    private String USER_KEY = "User";
     private SharedPreferences.Editor sp;
 
 
@@ -56,9 +52,6 @@ public class RegistrationPage extends AppCompatActivity {
         emailText = findViewById(R.id.email_text);
         passwordText = findViewById(R.id.password_text);
         passwordConfirmText = findViewById(R.id.repeat_pass_text);
-
-        // содинение с коллекцией в бд
-        mDataBase = FirebaseDatabase.getInstance().getReference(USER_KEY);
 
         // проверка, нужно ли создавать аккаунт
         sp = getSharedPreferences("Account", Context.MODE_PRIVATE).edit();
@@ -102,7 +95,6 @@ public class RegistrationPage extends AppCompatActivity {
             try {
                 checkEmail(email); // валидация почты
                 User user = new User(login, email, password);
-                mDataBase.push().setValue(user); // добавление аккаунта в бд
                 editSharedPreferences();
                 startActivity(new Intent(RegistrationPage.this, MainMenuPage.class));
             } catch (EmailNotCorrectException e) {
