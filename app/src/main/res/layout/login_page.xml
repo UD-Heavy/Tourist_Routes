@@ -131,6 +131,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/inter_extrabold"
+                android:onClick="onClickLogin"
                 android:text="@string/enter_text"
                 android:textSize="20sp"
                 app:backgroundTint="#555E8A" />
@@ -144,8 +145,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/inter_extrabold"
+                android:onClick="onClickRegister"
                 android:text="@string/register_text"
-                android:onClick="@{handler::beginRegister}"
                 android:textSize="20sp"
                 app:backgroundTint="#484C60" />
 
