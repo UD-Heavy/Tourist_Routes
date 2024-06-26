@@ -21,7 +21,13 @@
     <string name="first_card"><b>Исторический центр: тур по церквям</b></string>
     <string name="second_card"><b>Культурные центры Кургана</b></string>
     <string name="more_news"><b>Больше новостей</b></string>
-
+    <string name="name_profile"><b>Профиль</b></string>
+    <string name="number_profile"><b>+7 888 433 49 80</b></string>
+    <string name="mail_profile"><b>vit293949@gmail.com</b></string>
+    <string name="surname_profile"><b>Иванов</b></string>
+    <string name="firstname_profile"><b>Иван</b></string>
+    <string name="name_settings"><b>Настройки</b></string>
+    <string name="button1_settings"><b>Личные данные</b></string>
 
 
 
