@@ -3,15 +3,28 @@ package com.example.test.pages;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.R;
+import com.example.test.repositories.AsyncRequest;
+import com.example.test.repositories.UserList;
+import com.example.test.repositories.UserService;
+
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -28,10 +41,15 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
         init();
 
-        if (sharedPreferences.getString("Acc", "123").equals("true")) {
+        new AsyncRequest().execute();
+
+
+
+        if (sharedPreferences.getString("Acc", "В аккаунт уже вошли").equals("true")) {
             startActivity(mainMenuPage);
         }
     }
+
 
     private void init() {
         // проверка, нужно ли создавать аккаунт
@@ -45,9 +63,11 @@ public class LoginPage extends AppCompatActivity {
 
     public void onClickLogin(View v) {
         startActivity(mainMenuPage);
+
     }
 
-    public void onClickRegistration(View v){
+    public void onClickRegistration(View v) {
         startActivity(new Intent(LoginPage.this, RegistrationPage.class));
     }
+
 }

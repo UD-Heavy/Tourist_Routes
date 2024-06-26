@@ -1,14 +1,7 @@
 package com.example.test.utils;
 
-import androidx.annotation.NonNull;
-
 import com.example.test.exceptions.EmailNotCorrectException;
-import com.example.test.exceptions.UserNotFoundException;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class RegistrationValidator {
 
