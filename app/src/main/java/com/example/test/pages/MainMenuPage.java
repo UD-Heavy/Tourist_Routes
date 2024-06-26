@@ -135,7 +135,7 @@ public class MainMenuPage extends AppCompatActivity {
 
             public void bind(MyData item) {
                 tvTitle.setText(item.getTitle());
-                ivImage.setImageResource(item.getImageResource());
+                ivImage.setImageResource(item.getImageResId());
             }
         }
 
