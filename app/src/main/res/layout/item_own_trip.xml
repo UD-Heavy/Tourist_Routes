@@ -1,0 +1,29 @@
+<!-- res/layout/item_own_trip.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="0dp">
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="370dp"
+        android:layout_height="181dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_extrabold"
+        android:layout_marginBottom="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/own_trip1" />
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="0sp" />
+</LinearLayout>

@@ -1,19 +1,19 @@
 package com.example.test.models;
 
 public class MyData {
-    private final String title;
-    private final int imageResource;
+    private String title;
+    private int imageResId;
 
-    public MyData(String title, int imageResource) {
+    public MyData(String title, int imageResId) {
         this.title = title;
-        this.imageResource = imageResource;
+        this.imageResId = imageResId;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getImageResource() {
-        return imageResource;
+    public int getImageResId() {
+        return imageResId;
     }
 }
