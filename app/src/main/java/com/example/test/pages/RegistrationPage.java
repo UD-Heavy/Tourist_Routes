@@ -48,7 +48,7 @@ public class RegistrationPage extends AppCompatActivity {
     // объявление объектов для работы
     private void init() {
         registerButton = findViewById(R.id.do_Register);
-        loginText = findViewById(R.id.login_text);
+        loginText = findViewById(R.id.email_text);
         emailText = findViewById(R.id.email_text);
         passwordText = findViewById(R.id.password_text);
         passwordConfirmText = findViewById(R.id.repeat_pass_text);

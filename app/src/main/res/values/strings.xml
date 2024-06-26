@@ -21,6 +21,13 @@
     <string name="first_card"><b>Исторический центр: тур по церквям</b></string>
     <string name="second_card"><b>Культурные центры Кургана</b></string>
     <string name="more_news"><b>Больше новостей</b></string>
+    <string name="name_profile"><b>Профиль</b></string>
+    <string name="number_profile"><b>+7 888 433 49 80</b></string>
+    <string name="mail_profile"><b>vit293949@gmail.com</b></string>
+    <string name="surname_profile"><b>Иванов</b></string>
+    <string name="firstname_profile"><b>Иван</b></string>
+    <string name="name_settings"><b>Настройки</b></string>
+    <string name="button1_settings"><b>Личные данные</b></string>
     <string name="trip_title"><b>Создайте свое путешествие</b></string>
     <string name="search"><b>Поиск</b></string>
     <string name="popular"><b>Популярное:</b></string>
@@ -28,6 +35,7 @@
     <string name="own_trip"><b>Собственный маршрут:</b></string>
     <string name="chas">Часовня в честь Святой Троицы</string>
     <string name="aleksandra_nevskogo">Приход Александра Невского</string>
+
 
 
     <string name="block"><b>1</b></string>

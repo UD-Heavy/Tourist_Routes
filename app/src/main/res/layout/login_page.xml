@@ -8,11 +8,7 @@
 
     android:background="@drawable/authorisation_backgroung_image1"
 
-
-    android:orientation="vertical"
-    tools:context=".pages.LoginPage"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    tools:context=".pages.LoginPage">
 
     <View
         android:id="@+id/view"
@@ -31,7 +27,7 @@
         android:orientation="vertical"
 
 
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/linearLayout"
         app:layout_constraintTop_toTopOf="parent">
@@ -243,7 +239,7 @@
 
 
             <EditText
-                android:id="@+id/login_text"
+                android:id="@+id/email_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/login_field"

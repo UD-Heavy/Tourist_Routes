@@ -44,6 +44,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".pages.ProfilePage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.test.ProfilePage" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </activity>
+        <activity
             android:name=".pages.CreateTripPage"
             android:exported="true">
             <intent-filter>
