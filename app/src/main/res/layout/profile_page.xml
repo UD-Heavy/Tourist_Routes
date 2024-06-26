@@ -46,26 +46,28 @@
 
             <ImageButton
                 android:id="@+id/buttonPhotoProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="216dp"
-                android:background="@drawable/photoprof"/>
+                android:layout_marginTop="25dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/photoprof"/>
 
             <ImageView
                 android:id="@+id/linetwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:srcCompat="@drawable/group_100"
-                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="105dp"
-                android:layout_marginTop="23dp" />
-
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="0dp"
+                android:orientation="vertical"
+                app:srcCompat="@drawable/group_100" />
 
 
             <TextView
@@ -73,8 +75,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginStart="170dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginEnd="82dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:text="@string/number_profile"
                 android:textColor="#979797"
@@ -85,35 +91,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:textSize="12sp"
+                android:layout_below="@+id/tel"
+                android:layout_alignStart="@id/tel"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="50dp"
                 android:fontFamily="@font/inter_extrabold"
                 android:text="@string/mail_profile"
                 android:textColor="#979797"
-                android:layout_alignStart="@id/tel"
-                android:layout_marginTop="60dp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/surname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:textSize="15sp"
+                android:layout_below="@+id/mail"
+                android:layout_alignStart="@id/mail"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="136dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:text="@string/surname_profile"
+                android:text="@string/login_profile"
                 android:textColor="#979797"
-                android:layout_marginTop="90dp"
-                android:layout_alignStart="@id/mail" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textSize="15sp"
-                android:fontFamily="@font/inter_extrabold"
-                android:text="@string/firstname_profile"
-                android:textColor="#979797"
-                android:layout_alignStart="@id/surname"
-                android:layout_marginTop="110dp" />
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
@@ -166,7 +167,8 @@
 
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/setting1button" />
+                android:background="@drawable/setting1button"
+                android:onClick="onClickPersonalData" />
 
             <ImageButton
                 android:id="@+id/field_settings2"
@@ -176,7 +178,8 @@
                 android:layout_below="@id/field_settings1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
-                android:background="@drawable/setting2button" />
+                android:background="@drawable/setting2button"
+                android:onClick="onClickPrivacy" />
 
             <ImageButton
                 android:id="@+id/field_settings3"
@@ -186,7 +189,8 @@
                 android:layout_below="@id/field_settings2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
-                android:background="@drawable/setting3button" />
+                android:background="@drawable/setting3button"
+                android:onClick="onClickFavorites" />
 
             <ImageButton
                 android:id="@+id/field_settings4"
@@ -196,7 +200,8 @@
                 android:layout_below="@id/field_settings3"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
-                android:background="@drawable/setting4button" />
+                android:background="@drawable/setting4button"
+                android:onClick="onClickAssistance" />
 
             <ImageButton
                 android:id="@+id/field_settings5"
@@ -206,7 +211,8 @@
                 android:layout_below="@id/field_settings4"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
-                android:background="@drawable/setting5button" />
+                android:background="@drawable/setting5button"
+                android:onClick="onClickAbout" />
 
         </RelativeLayout>
 
@@ -238,7 +244,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
-                android:background="@drawable/setting6button" />
+                android:background="@drawable/setting6button"
+                android:onClick="onClickExitProfile" />
 
         </RelativeLayout>
 

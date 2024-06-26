@@ -1,5 +1,6 @@
 package com.example.test.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,6 @@ public class MainMenuPage extends AppCompatActivity {
     ArrayList<MyData> dataSource;
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
     MainMenuPage.MyRvAdapter adapterRV_tour, adapterRV_news;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,10 @@ public class MainMenuPage extends AppCompatActivity {
             return insets;
         });
 
+    }
+
+    public void onClickProfile(View v) {
+        startActivity(new Intent(MainMenuPage.this, ProfilePage.class));
     }
 
 
