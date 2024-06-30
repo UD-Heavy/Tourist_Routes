@@ -34,6 +34,15 @@
     <string name="own_trip"><b>Собственный маршрут:</b></string>
     <string name="chas">Часовня в честь Святой Троицы</string>
     <string name="aleksandra_nevskogo">Приход Александра Невского</string>
+    <string name="name_placeholder">Дворец культуры машиностроителей</string>
+    <string name="address_placeholder">Карла Маркса, 70</string>
+    <string name="categ_placeholder">Дома / Дворцы культуры</string>
+    <string name="closed_text">Закрыто. Откроется завтра в %1$s</string>
+    <string name="working_hours_placeholder">Ежедневно с 9:00 до 18:00</string>
+    <string name="closed_until_placeholder">Закрыто до 9:00</string>
+
+
+
 
 
     <string name="block"><b>1</b></string>
