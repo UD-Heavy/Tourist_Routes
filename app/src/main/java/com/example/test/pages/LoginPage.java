@@ -17,7 +17,9 @@ public class LoginPage extends AppCompatActivity {
 
     private Button registrationButton;
     private Button loginButton;
-    private Intent mainMenuPage;
+    //private Intent MainActivity;
+    private Intent mainMenuIntent;
+
     private SharedPreferences sharedPreferences;
 
     // обработка события при создании окна
@@ -28,23 +30,24 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
         init();
 
+        mainMenuIntent = new Intent(LoginPage.this, MainActivity.class);
+
         if (sharedPreferences.getString("Acc", "123").equals("true")) {
-            startActivity(mainMenuPage);
+            startActivity(mainMenuIntent);
         }
     }
+
 
     private void init() {
         // проверка, нужно ли создавать аккаунт
         sharedPreferences = getSharedPreferences("Account", Context.MODE_PRIVATE);
-
-        mainMenuPage = new Intent(LoginPage.this, MainMenuPage.class);
 
         registrationButton = findViewById(R.id.buttonRegister);
         loginButton = findViewById(R.id.buttonEnter);
     }
 
     public void onClickLogin(View v) {
-        startActivity(mainMenuPage);
+        startActivity(mainMenuIntent);
     }
 
     public void onClickRegistration(View v){
