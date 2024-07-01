@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.test.R;
 import com.example.test.databinding.ActivityMainBinding;
+//import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 
+
         // Инициализация фрагментов
         mainMenuPage = new MainMenuPage();
         profilePage = new ProfilePage();
@@ -46,19 +49,21 @@ public class MainActivity extends AppCompatActivity {
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.home) {
+            if (itemId == R.id.home_navbar) {
                 showFragment(mainMenuPage);
-            } else if (itemId == R.id.profile) {
+            } else if (itemId == R.id.news_navbar) {
                 showFragment(profilePage);
-            } else if (itemId == R.id.settings) {
+            } else if (itemId == R.id.map_navbar) {
+                showFragment(mainMenuPage);
+            } else if (itemId == R.id.favorite_navbar) {
                 showFragment(settingsPage);
             }
             return true;
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomNavigationView, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
         });
     }
