@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.test.R;
 import com.example.test.databinding.ActivityMainBinding;
-//import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -22,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Ссылки на фрагменты
     private Fragment mainMenuPage;
-    private Fragment profilePage;
-    private Fragment settingsPage;
+    private Fragment newsPage;
+    private Fragment createTripPage;
+    private Fragment favouritePage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Инициализация фрагментов
         mainMenuPage = new MainMenuPage();
-        profilePage = new ProfilePage();
-        settingsPage = new ProfilePage();
+        newsPage = new ProfilePage();
+        createTripPage = new CreateTripPage();
 
         // Добавление фрагментов в FragmentManager
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame_layout, mainMenuPage, "home")
-                .add(R.id.frame_layout, profilePage, "profile")
-                .add(R.id.frame_layout, settingsPage, "settings")
-                .hide(profilePage)
-                .hide(settingsPage)
+                .add(R.id.frame_layout, newsPage, "profile")
+                .add(R.id.frame_layout, createTripPage, "settings")
+                .hide(newsPage)
+                .hide(createTripPage)
                 .commit();
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
             if (itemId == R.id.home_navbar) {
                 showFragment(mainMenuPage);
             } else if (itemId == R.id.news_navbar) {
-                showFragment(profilePage);
+                showFragment(newsPage);
             } else if (itemId == R.id.map_navbar) {
-                showFragment(mainMenuPage);
+                showFragment(createTripPage);
             } else if (itemId == R.id.favorite_navbar) {
-                showFragment(settingsPage);
+                showFragment(createTripPage);
             }
             return true;
         });
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.hide(mainMenuPage)
-                .hide(profilePage)
-                .hide(settingsPage)
+                .hide(newsPage)
+                .hide(createTripPage)
                 .show(fragment)
                 .commit();
     }
