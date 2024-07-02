@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/authorisation_backgroung_image1"
-    tools:context=".TourSheetActivity">
+    tools:context=".pages.TourSheetActivity">
 
 
     <FrameLayout
@@ -17,6 +17,7 @@
         android:background = "@drawable/cropped_rectangle">
 
         <ImageView
+            android:id="@+id/bar"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:src = "@drawable/smth"
@@ -27,8 +28,9 @@
         <LinearLayout
             android:id="@+id/baseinfo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="?attr/actionBarSize">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -267,7 +269,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#fffff">
+                android:background="#ffffff">
 
             </LinearLayout>
 

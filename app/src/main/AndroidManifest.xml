@@ -79,6 +79,15 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
+        <activity
+            android:name=".pages.TourSheetActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.test.gay" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
 
