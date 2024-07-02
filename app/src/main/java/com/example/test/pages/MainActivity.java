@@ -37,16 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Инициализация фрагментов
         mainMenuPage = new MainMenuPage();
-        newsPage = new ProfilePage();
+        newsPage = new NewsPage();
         createTripPage = new CreateTripPage();
+        favouritePage = new FavouritePage();
 
         // Добавление фрагментов в FragmentManager
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame_layout, mainMenuPage, "home")
                 .add(R.id.frame_layout, newsPage, "profile")
                 .add(R.id.frame_layout, createTripPage, "settings")
+                .add(R.id.frame_layout, favouritePage, "favourite")
                 .hide(newsPage)
                 .hide(createTripPage)
+                .hide(favouritePage)
                 .commit();
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (itemId == R.id.map_navbar) {
                 showFragment(createTripPage);
             } else if (itemId == R.id.favorite_navbar) {
-                showFragment(createTripPage);
+                showFragment(favouritePage);
             }
             return true;
         });
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.hide(mainMenuPage)
                 .hide(newsPage)
                 .hide(createTripPage)
+                .hide(favouritePage)
                 .show(fragment)
                 .commit();
     }

@@ -14,6 +14,10 @@
     <string name="register_text2"><b>Создать</b></string>
     <string name="repeat_pass"><b>Повторите пароль</b></string>
     <string name="mainTitle"><b>Туры и новости</b></string>
+    <string name="newsTitle"><b>Новости и события</b></string>
+    <string name="favouriteTitle"><b>Избранное</b></string>
+    <string name="favouritePlaces"><b>Места</b></string>
+    <string name="favouriteTours"><b>Туры</b></string>
     <string name="readytour"><b>Готовые туры</b></string>
     <string name="all"><b>Все</b></string>
     <string name="newslabel"><b>Новости и события</b></string>
@@ -45,7 +49,6 @@
     <string name="tour_label"><b>Исторический центр: тур по церквям</b></string>
     <string name="tour_desc">Познакомьтесь с культовыми сооружениями, предназначенными для
     собрания прихожан, совершения богослужений и религиозных обрядов.</string>
-
 
 
     <string name="block"><b>1</b></string>

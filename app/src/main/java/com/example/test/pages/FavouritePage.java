@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +17,7 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
-public class NewsPage extends Fragment {
+public class FavouritePage extends Fragment {
 
     RecyclerView rv;
     ArrayList<MyData> news_list;
@@ -28,7 +26,7 @@ public class NewsPage extends Fragment {
     MyRvAdapter news;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.news_page, container, false);
+        return inflater.inflate(R.layout.favourite_page, container, false);
     }
 
     @Override

@@ -74,7 +74,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pages.NewsPage"
+            android:name=".pages.FavouritePage"
             android:exported="true">
         <intent-filter>
             <action android:name="com.example.test.test1" />
