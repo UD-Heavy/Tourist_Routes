@@ -7,7 +7,9 @@
         <item name="android:fadeScrollbars">false</item>
         <item name="android:scrollbarThumbVertical">@drawable/scroll</item>
     </style>
-
+    <style name="BottomNavigationItemNoBackground" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemBackground">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
 
 
 </resources>

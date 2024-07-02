@@ -33,7 +33,10 @@ public class LoginPage extends AppCompatActivity {
         mainMenuIntent = new Intent(LoginPage.this, MainActivity.class);
 
         if (sharedPreferences.getString("Acc", "123").equals("true")) {
-            startActivity(mainMenuIntent);
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 

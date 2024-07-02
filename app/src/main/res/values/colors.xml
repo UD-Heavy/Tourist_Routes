@@ -7,4 +7,6 @@
     <color name="open_status_closed">#FF0000</color>
     <color name="green">#00FF00</color>
     <color name="red">#FF0000</color>
+    <color name="icon_navbar_notselected">#333333</color>
+    <color name="icon_navbar_selected">#008FD3</color>
 </resources>
