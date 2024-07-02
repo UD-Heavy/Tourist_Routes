@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/authorisation_backgroung_image1"
 
     tools:context=".pages.LoginPage">
@@ -22,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
         android:gravity="center"
         android:orientation="vertical"
 
@@ -62,14 +60,14 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="360dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/cropped_rectangle"
-        android:gravity="top"
+        android:gravity="bottom"
         android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
@@ -84,8 +82,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp">
 
 
             <ImageView
@@ -122,7 +121,6 @@
                 android:id="@+id/buttonEnter"
                 android:layout_width="320dp"
                 android:layout_height="55dp"
-
                 android:layout_below="@id/forgot_button"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"
@@ -191,7 +189,6 @@
                 app:srcCompat="@drawable/line_1" />
 
             <ImageButton
-                android:contentDescription="@string/block"
                 android:id="@+id/circle1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -203,12 +200,12 @@
                 android:layout_toStartOf="@id/circle2"
                 android:layout_toLeftOf="@id/circle2"
                 android:background="@drawable/circle"
+                android:contentDescription="@string/block"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/sber_svo_working" />
 
             <ImageButton
-                android:contentDescription="@string/block"
                 android:id="@+id/circle2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -216,12 +213,12 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="13dp"
                 android:background="@drawable/circle"
+                android:contentDescription="@string/block"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/google_logo" />
 
             <ImageButton
-                android:contentDescription="@string/block"
                 android:id="@+id/circle3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -233,6 +230,7 @@
                 android:layout_toEndOf="@id/circle2"
                 android:layout_toRightOf="@id/circle2"
                 android:background="@drawable/circle"
+                android:contentDescription="@string/block"
                 android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/vk_logo" />
@@ -274,8 +272,8 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:hint="@string/password_field_text"
-                android:inputType="textPassword"
-                android:imeOptions="actionDone"/>
+                android:imeOptions="actionDone"
+                android:inputType="textPassword" />
         </RelativeLayout>
     </LinearLayout>
 
