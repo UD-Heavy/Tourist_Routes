@@ -19,7 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.R;
 import com.example.test.exceptions.EmailNotCorrectException;
+import com.example.test.exceptions.UserNotFoundException;
 import com.example.test.models.User;
+import com.example.test.models.UserDTO;
+import com.example.test.repositories.AsyncRequest;
 
 
 public class RegistrationPage extends AppCompatActivity {
@@ -93,11 +96,16 @@ public class RegistrationPage extends AppCompatActivity {
             // создание аккаунта
         else {
             try {
-                emailValidator(email); // валидация почты
-                User user = new User(login, email, password);
+                // валидация почты
+                emailValidator(email);
+                UserDTO user = new UserDTO(login, email, password);
+
+                new AsyncRequest(user).execute();
+                // добавление аккаунта пользователя во внутреннее хранилище телефона
                 editSharedPreferences();
+//                Toast.makeText(RegistrationPage.this, "Пользователь успешно создан", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(RegistrationPage.this, MainMenuPage.class));
-            } catch (EmailNotCorrectException e) {
+            } catch (EmailNotCorrectException | UserNotFoundException e) {
                 Toast.makeText(RegistrationPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
@@ -107,6 +115,7 @@ public class RegistrationPage extends AppCompatActivity {
         sp.putString("Acc", "true").commit();
         sp.putString("Login", login).commit();
         sp.putString("Email", email).commit();
+        sp.putString("Password", password).commit();
     }
 
 }
