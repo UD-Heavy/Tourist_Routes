@@ -3,6 +3,8 @@ package com.example.test.pages;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -66,6 +68,28 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
         });
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+                if (currentFragment != null && currentFragment.getChildFragmentManager().getBackStackEntryCount() > 0) {
+                    currentFragment.getChildFragmentManager().popBackStack();
+                } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    getSupportFragmentManager().popBackStack();
+                } else {
+                    showExitConfirmationDialog();
+                }
+            }
+        });
+    }
+
+    private void showExitConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Выйти из приложения?")
+                .setMessage("Вы уверены, что хотите выйти?")
+                .setPositiveButton("Да", (dialog, which) -> finish())
+                .setNegativeButton("Нет", null)
+                .show();
     }
 
     private void showFragment(Fragment fragment) {
