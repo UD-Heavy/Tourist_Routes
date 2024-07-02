@@ -1,0 +1,9 @@
+<!-- res/layout/item_name.xml -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nameTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:textSize="22sp"
+    android:fontFamily="@font/inter_extrabold"
+    android:textColor="@android:color/black" />

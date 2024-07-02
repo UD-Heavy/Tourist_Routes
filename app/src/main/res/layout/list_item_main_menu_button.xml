@@ -1,0 +1,29 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/card"
+    android:layout_width="370dp"
+    android:layout_height="240dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="40dp"
+    android:backgroundTint="#A8B9C2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:id="@+id/button_more_news"
+            android:layout_width="157dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:padding="0dp"
+            android:fontFamily="@font/inter_extrabold"
+            android:text="@string/more_news"
+            app:backgroundTint="#E7E5E5" />
+    </RelativeLayout>
+    <!-- Your card content here -->
+</androidx.cardview.widget.CardView>

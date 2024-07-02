@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+
+    tools:context=".pages.ProfilePage">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/inter_extrabold"
+            android:text="@string/name_profile"
+            android:textColor="#333333"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp" />
+
+        <RelativeLayout
+            android:id="@+id/profile_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/rectangle_37"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttonPhotoProfile"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/photoprof"
+                android:contentDescription="@string/profile_photo_description" />
+
+
+            <ImageView
+                android:id="@+id/linetwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="0dp"
+                android:orientation="vertical"
+                app:srcCompat="@drawable/group_100" />
+
+
+            <TextView
+                android:id="@+id/tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="82dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:text="@string/number_profile"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/tel"
+                android:layout_alignStart="@id/tel"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:text="@string/mail_profile"
+                android:textColor="#979797"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/surname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/mail"
+                android:layout_alignStart="@id/mail"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="136dp"
+                android:fontFamily="@font/inter_extrabold"
+                android:text="@string/login_profile"
+                android:textColor="#979797"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/line6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@drawable/line_7"
+            android:orientation="vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/inter_extrabold"
+            android:text="@string/name_settings"
+            android:textColor="#333333"
+            android:textSize="21sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp" />
+
+        <RelativeLayout
+            android:id="@+id/settings_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/field_settings1"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/setting1button"
+                android:onClick="onClickPersonalData"
+                android:contentDescription="@string/personal_data_button_description" />
+
+
+            <ImageButton
+                android:id="@+id/field_settings2"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_below="@id/field_settings1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/setting2button"
+                android:onClick="onClickPrivacy"
+                android:contentDescription="@string/privacy_button_description" />
+
+
+            <ImageButton
+                android:id="@+id/field_settings3"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_below="@id/field_settings2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/setting3button"
+                android:onClick="onClickFavorites"
+                android:contentDescription="@string/favorites_button_description" />
+
+            <ImageButton
+                android:id="@+id/field_settings4"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_below="@id/field_settings3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/setting4button"
+                android:onClick="onClickAssistance"
+                android:contentDescription="@string/assistance_button_description" />
+
+
+            <ImageButton
+                android:id="@+id/field_settings5"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_below="@id/field_settings4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/setting5button"
+                android:onClick="onClickAbout"
+                android:contentDescription="@string/about_button_description" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/line7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:srcCompat="@drawable/line_7"
+            android:orientation="vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_gravity="center"/>
+
+        <RelativeLayout
+            android:id="@+id/settings_field2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/field_settings6"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/setting6button"
+                android:onClick="onClickExitProfile"
+                android:contentDescription="@string/exit_profile_button_description" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
