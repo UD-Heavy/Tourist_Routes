@@ -1,6 +1,5 @@
 package com.example.test.pages;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +8,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,32 +19,31 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
-public class MainMenuPage extends AppCompatActivity {
+public class MainMenuPage extends Fragment {
     RecyclerView rv, rv1;
     ArrayList<MyData> dataSource;
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
     MainMenuPage.MyRvAdapter adapterRV_tour, adapterRV_news;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.main_menu_page);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.main_menu_page, container, false);
+    }
 
-        rv = findViewById(R.id.tours_view);
-        rv1 = findViewById(R.id.news_view);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        // соединение с бд, получаем список объектов
-        // ArrayList<Document> DBList = dbRepositories.getAll();
-        // for (MyData data : DBList){
-        //      dataSourse.add(data.get("title"), convertBase64ToImage(data.get("image")))
-        // }
+        rv = view.findViewById(R.id.tours_view);
+        rv1 = view.findViewById(R.id.news_view);
+
         dataSource = new ArrayList<>();
         dataSource.add(new MyData(getResources().getString(R.string.first_card), R.drawable.kurgan_ts));
         dataSource.add(new MyData(getResources().getString(R.string.second_card), R.drawable.dk_mashin));
 
-        linearLayoutManager = new LinearLayoutManager(MainMenuPage.this, LinearLayoutManager.HORIZONTAL, false);
-        linearLayoutManager1 = new LinearLayoutManager(MainMenuPage.this, LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManager1 = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
 
         adapterRV_tour = new MyRvAdapter(dataSource);
         rv.setLayoutManager(linearLayoutManager);
@@ -59,16 +53,17 @@ public class MainMenuPage extends AppCompatActivity {
         rv1.setLayoutManager(linearLayoutManager1);
         rv1.setAdapter(adapterRV_news);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
+        view.findViewById(R.id.circle1).setOnClickListener(this::onClickProfile);
+    }
+    private void openProfilePage() {
+        ProfilePage profilePage = new ProfilePage();
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).replaceFragment(profilePage);
+        }
     }
 
     public void onClickProfile(View v) {
-        startActivity(new Intent(MainMenuPage.this, ProfilePage.class));
+        openProfilePage();
     }
 
 
