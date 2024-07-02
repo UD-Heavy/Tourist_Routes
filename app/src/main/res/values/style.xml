@@ -7,6 +7,12 @@
         <item name="android:fadeScrollbars">false</item>
         <item name="android:scrollbarThumbVertical">@drawable/scroll</item>
     </style>
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
 
 
 
