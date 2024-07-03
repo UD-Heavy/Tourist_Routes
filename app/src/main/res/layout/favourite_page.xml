@@ -6,25 +6,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".pages.FavouritePage">
-    <Toolbar
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:layout_scrollFlags="scroll">
+        android:orientation="vertical">
         <TextView
             android:id="@id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center"
+            android:layout_marginTop="66dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/inter_extrabold"
             android:text="@string/favouriteTitle"
             android:textColor="#333333"
-            android:textSize="32sp"
-
-            />
-    </Toolbar>
+            android:textSize="30sp" />
+        <ImageButton
+            android:id="@+id/kurgan_logo"
+            android:layout_width="63dp"
+            android:layout_height="55dp"
+            android:layout_toLeftOf="@id/title"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/kurgan_logo_icon"
+            android:contentDescription="@string/block"
+            android:onClick="onClickProfile" />
+    </RelativeLayout>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
