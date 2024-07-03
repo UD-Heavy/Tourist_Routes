@@ -36,6 +36,7 @@ public class NewsPage extends AppCompatActivity {
 
         rv = findViewById(R.id.recycler_view);
 
+
         // соединение с бд, получаем список объектов
         // ArrayList<Document> DBList = dbRepositories.getAll();
         // for (MyData data : DBList){
@@ -63,10 +64,11 @@ public class NewsPage extends AppCompatActivity {
         linearLayoutManager.isAutoMeasureEnabled();
         rv.setLayoutManager(linearLayoutManager);
         rv.setNestedScrollingEnabled(false);
+        
         rv.setAdapter(news);
 
     }
-    class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    static class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<MyData> data;
 
@@ -81,7 +83,7 @@ public class NewsPage extends AppCompatActivity {
 
 
             View view = inflater.inflate(R.layout.list_item_main_menu_card, parent, false);
-            return new MyRvAdapter.CardViewHolder(view);
+            return new CardViewHolder(view);
 
         }
 
@@ -100,21 +102,16 @@ public class NewsPage extends AppCompatActivity {
             return data.size();
         }
 
-
-
         // ViewHolder для карточки без кнопки
-        class CardViewHolder extends RecyclerView.ViewHolder {
-            TextView tvTitle;
+        static class CardViewHolder extends RecyclerView.ViewHolder {
             ImageView ivImage;
 
             public CardViewHolder(@NonNull View itemView) {
                 super(itemView);
-                tvTitle = itemView.findViewById(R.id.text_view);
                 ivImage = itemView.findViewById(R.id.image_view);
             }
 
             public void bind(MyData item) {
-                tvTitle.setText(item.getTitle());
                 ivImage.setImageResource(item.getImageResId());
             }
         }
