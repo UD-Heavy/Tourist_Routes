@@ -84,9 +84,10 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="82dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:text="@string/number_profile"
+                android:text="Номер телефона"
                 android:textColor="#979797"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/mail"
@@ -99,9 +100,10 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:text="@string/mail_profile"
+                android:text="Почтовый адрес"
                 android:textColor="#979797"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/surname"
@@ -114,9 +116,10 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="119dp"
                 android:fontFamily="@font/inter_extrabold"
-                android:text="@string/login_profile"
+                android:text="Логин"
                 android:textColor="#979797"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                tools:ignore="HardcodedText" />
 
         </RelativeLayout>
 
