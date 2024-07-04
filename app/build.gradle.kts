@@ -33,13 +33,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    
+
 
 }
 
 dependencies {
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 
 
     implementation(libs.appcompat)
@@ -47,8 +47,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
-    implementation(libs.navigation.fragment)
-    implementation(libs.navigation.ui)
+//    implementation(libs.navigation.fragment)
+//    implementation(libs.navigation.ui)
     implementation(libs.coordinatorlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
