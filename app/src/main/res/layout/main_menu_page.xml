@@ -101,7 +101,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:scrollbars="horizontal"/>
+                android:scrollbars="none"
+                android:overScrollMode="never"/>
                 <!--android:scrollbarThumbHorizontal="@drawable/scroll"-->
 
             <RelativeLayout
@@ -149,11 +150,9 @@
                 android:id="@+id/news_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
+                android:scrollbars="none"
                 android:layout_marginTop="0dp"
-                android:scrollbarStyle="outsideOverlay"
-                android:fadeScrollbars="true"
-                style="@style/custom_scroll"/>
+                android:overScrollMode="never"/>
 
         </LinearLayout>
 
