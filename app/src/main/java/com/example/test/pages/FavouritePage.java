@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +17,7 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
-public class NewsPage extends Fragment {
+public class FavouritePage extends Fragment {
 
     RecyclerView rv;
     ArrayList<MyData> news_list;
@@ -28,7 +26,7 @@ public class NewsPage extends Fragment {
     MyRvAdapter news;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.news_page, container, false);
+        return inflater.inflate(R.layout.favourite_page, container, false);
     }
 
     @Override
@@ -36,7 +34,6 @@ public class NewsPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         rv = view.findViewById(R.id.recycler_view);
-
 
         // соединение с бд, получаем список объектов
         // ArrayList<Document> DBList = dbRepositories.getAll();
@@ -63,10 +60,9 @@ public class NewsPage extends Fragment {
         linearLayoutManager.isAutoMeasureEnabled();
         rv.setLayoutManager(linearLayoutManager);
         rv.setNestedScrollingEnabled(false);
-        
         rv.setAdapter(news);
     }
-    static class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<MyData> data;
 
@@ -81,7 +77,7 @@ public class NewsPage extends Fragment {
 
 
             View view = inflater.inflate(R.layout.list_item_main_menu_card, parent, false);
-            return new CardViewHolder(view);
+            return new MyRvAdapter.CardViewHolder(view);
 
         }
 
@@ -100,16 +96,21 @@ public class NewsPage extends Fragment {
             return data.size();
         }
 
+
+
         // ViewHolder для карточки без кнопки
-        static class CardViewHolder extends RecyclerView.ViewHolder {
+        class CardViewHolder extends RecyclerView.ViewHolder {
+            TextView tvTitle;
             ImageView ivImage;
 
             public CardViewHolder(@NonNull View itemView) {
                 super(itemView);
+                tvTitle = itemView.findViewById(R.id.text_view);
                 ivImage = itemView.findViewById(R.id.image_view);
             }
 
             public void bind(MyData item) {
+                tvTitle.setText(item.getTitle());
                 ivImage.setImageResource(item.getImageResId());
             }
         }

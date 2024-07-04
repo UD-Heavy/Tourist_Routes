@@ -1,6 +1,11 @@
 package com.example.test.pages;
 
-import android.app.Activity;
+import androidx.fragment.app.Fragment;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +24,7 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
-public class CreateTripPage extends Activity {
+public class CreateTripPage extends Fragment {
 
     RecyclerView rv, rv1, rv2;
     ArrayList<MyData> popularDataList, categoriesDataList, ownTripDataList;
@@ -27,13 +32,13 @@ public class CreateTripPage extends Activity {
     MyRvAdapter adapterRV_popular, adapterRV_categories, adapterRV_own_trip;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.create_trip_page, container, false);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_trip_page);
 
-        rv = findViewById(R.id.popular_view);
-        rv1 = findViewById(R.id.categories_view);
-        rv2 = findViewById(R.id.own_trip_view);
+        rv = view.findViewById(R.id.popular_view);
+        rv1 = view.findViewById(R.id.categories_view);
+        rv2 = view.findViewById(R.id.own_trip_view);
 
         // соединение с бд, получаем список объектов
         // ArrayList<Document> DBList = dbRepositories.getAll();
@@ -59,9 +64,9 @@ public class CreateTripPage extends Activity {
         adapterRV_categories = new MyRvAdapter(categoriesDataList, R.layout.item_categories);
         adapterRV_own_trip = new MyRvAdapter(ownTripDataList, R.layout.item_own_trip);
 
-        rv.setLayoutManager(new GridLayoutManager(this, 2)); // 2 колонки в сетке
-        rv1.setLayoutManager(new GridLayoutManager(this, categoriesDataList.size())); // Колонки равны количеству категорий
-        rv2.setLayoutManager(new GridLayoutManager(this, 1)); // 1 колонка
+        rv.setLayoutManager(new GridLayoutManager(requireContext(), 2)); // 2 колонки в сетке
+        rv1.setLayoutManager(new GridLayoutManager(requireContext(), categoriesDataList.size())); // Колонки равны количеству категорий
+        rv2.setLayoutManager(new GridLayoutManager(requireContext(), 1)); // 1 колонка
 
         rv.setAdapter(adapterRV_popular);
         rv1.setAdapter(adapterRV_categories);
@@ -80,10 +85,11 @@ public class CreateTripPage extends Activity {
         rv.addItemDecoration(itemDecoration);
         rv1.addItemDecoration(itemDecoration);
         rv2.addItemDecoration(itemDecoration);
+        return view;
     }
 
     private String getStringResourceByName(String aString) {
-        String packageName = getPackageName();
+        String packageName = requireContext().getPackageName();
         int resId = getResources().getIdentifier(aString, "string", packageName);
         return getString(resId);
     }

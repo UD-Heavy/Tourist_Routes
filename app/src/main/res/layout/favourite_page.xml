@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/inter_extrabold"
-            android:text="@string/newsTitle"
+            android:text="@string/favouriteTitle"
             android:textColor="#333333"
             android:textSize="32sp"
 
@@ -64,13 +64,13 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="События"
+                    android:text="@string/favouritePlaces"
                     />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Новости"
+                    android:text="@string/favouriteTours"
                     />
 
             </com.google.android.material.tabs.TabLayout>
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
+            android:paddingBottom="?attr/actionBarSize"
             >
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -87,7 +87,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:scrollbars="none"
-                android:paddingBottom="?attr/actionBarSize"
+
 
                 />
         </androidx.core.widget.NestedScrollView>

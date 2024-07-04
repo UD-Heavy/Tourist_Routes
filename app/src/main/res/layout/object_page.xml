@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/authorisation_backgroung_image1"
+    tools:context=".pages.ObjectPage">
+
+
+    <FrameLayout
+        android:id="@+id/sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior = "com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background = "@drawable/cropped_rectangle">
+
+        <ImageView
+            android:id="@+id/bar"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:src = "@drawable/smth"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center|top">
+        </ImageView>
+
+        <LinearLayout
+            android:id="@+id/baseinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="?attr/actionBarSize">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tour_label"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:text="Название объекта"
+                    android:textColor="#333333"
+                    android:textSize="26sp" />
+
+                <ImageButton
+                    android:id="@+id/fav_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/tour_label"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="25dp"
+                    android:background="@null"
+                    android:src="@drawable/fav_icon"
+                    android:soundEffectsEnabled="false">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/tour_label2"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignStart="@id/tour_label"
+                    android:layout_below="@id/tour_label"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:text="Название улицы"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tour_label3"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignStart="@id/tour_label"
+                    android:layout_below="@id/tour_label2"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:text="Категория / подкатегория"
+                    android:textColor="#979797"
+                    android:textSize="15sp"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <RatingBar
+                    android:id="@+id/score"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:max="5"
+                    android:numStars="5"
+                    android:rating="4.1"
+                    android:stepSize="0.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="4.1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="(52)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tour_label4"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="25dp"
+                android:text="Ежедневно с 9:00 до 18:00"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                android:fontFamily="@font/inter_medium"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tour_label5"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="25dp"
+                android:text="Открыто до 18:00"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                android:fontFamily="@font/inter_medium"
+                tools:ignore="HardcodedText" />
+
+            <RelativeLayout
+
+                android:id="@+id/tourinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/tourinfo">
+
+                <TextView
+                    android:id="@+id/contacts"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Номер телефона"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/inter_medium"
+                    android:textColor="#0645AD"
+                    android:clickable="true"
+                    android:focusable="true"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/phone_number"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/contacts"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/inter_medium"
+                    tools:ignore="HardcodedText" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/images_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:scrollbars="horizontal"
+                android:clipToPadding="false"
+                android:paddingStart="19dp"
+                android:paddingEnd="19dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
