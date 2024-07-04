@@ -26,11 +26,9 @@
     <string name="third_card"><b>Концерт в Филармонии: билеты раскуплены!</b></string>
     <string name="more_news"><b>Больше новостей</b></string>
     <string name="name_profile"><b>Профиль</b></string>
-    <string name="number_profile"><b>+7 888 433 49 80</b></string>
-    <string name="mail_profile"><b>vit293949@gmail.com</b></string>
-    <string name="login_profile"><b>Иванов</b></string>
     <string name="name_settings"><b>Настройки</b></string>
     <string name="button1_settings"><b>Личные данные</b></string>
+    <string name="contacts">Контакты:</string>
     <string name="trip_title"><b>Создайте свое путешествие</b></string>
     <string name="search"><b>Поиск</b></string>
     <string name="popular"><b>Популярное:</b></string>
