@@ -254,7 +254,7 @@
                 android:autofillHints="username"
                 android:background="@android:color/transparent"
                 android:ems="10"
-                android:hint="@string/login_field_text"
+                android:hint="@string/email_field_text"
                 android:inputType="text" />
 
             <EditText

@@ -3,7 +3,8 @@
     <string name="lets_start"><b>Давай начнем!</b></string>
     <string name="login"><b>Вход</b></string>
     <string name="text"><b>Создай своё путешествие</b></string>
-    <string name="login_field_text"><b>Логин</b></string>
+    <string name="email_field_text"><b>Почта</b></string>
+    <string name="login_field_text"><b>Имя пользователя</b></string>
     <string name="password_field_text"><b>Пароль</b></string>
     <string name="forgot_pass"><b>Забыли пароль?</b></string>
     <string name="enter_text"><b>Войти</b></string>
