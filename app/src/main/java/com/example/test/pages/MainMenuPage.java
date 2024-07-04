@@ -55,15 +55,11 @@ public class MainMenuPage extends Fragment {
 
         view.findViewById(R.id.kurgan_logo).setOnClickListener(this::onClickProfile);
     }
-    private void openProfilePage() {
-        ProfilePage profilePage = new ProfilePage();
-        if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).replaceFragment(profilePage);
-        }
-    }
+
 
     public void onClickProfile(View v) {
-        openProfilePage();
+        ProfilePage profilePage = new ProfilePage();
+        ((MainActivity) getActivity()).replaceFragment(profilePage);
     }
 
 

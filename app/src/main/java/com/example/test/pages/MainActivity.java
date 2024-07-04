@@ -133,7 +133,9 @@ public class MainActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.hide(mainMenuPage);
+        fragmentTransaction.add(R.id.frame_layout, fragment, "profile");
+        fragmentTransaction.show(fragment);
         fragmentTransaction.commit();
     }
 }
