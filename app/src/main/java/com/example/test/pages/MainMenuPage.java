@@ -53,7 +53,7 @@ public class MainMenuPage extends Fragment {
         rv1.setLayoutManager(linearLayoutManager1);
         rv1.setAdapter(adapterRV_news);
 
-        view.findViewById(R.id.circle1).setOnClickListener(this::onClickProfile);
+        view.findViewById(R.id.kurgan_logo).setOnClickListener(this::onClickProfile);
     }
     private void openProfilePage() {
         ProfilePage profilePage = new ProfilePage();

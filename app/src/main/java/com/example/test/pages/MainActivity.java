@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment newsPage;
     private Fragment createTripPage;
     private Fragment favouritePage;
-
+    private int currentTabIndex = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,34 +34,29 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 
-
-        // Инициализация фрагментов
         mainMenuPage = new MainMenuPage();
         newsPage = new NewsPage();
         createTripPage = new CreateTripPage();
         favouritePage = new FavouritePage();
 
-        // Добавление фрагментов в FragmentManager
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.frame_layout, mainMenuPage, "home")
-                .add(R.id.frame_layout, newsPage, "profile")
-                .add(R.id.frame_layout, createTripPage, "settings")
-                .add(R.id.frame_layout, favouritePage, "favourite")
-                .hide(newsPage)
-                .hide(createTripPage)
-                .hide(favouritePage)
-                .commit();
+        preloadFragments();
+        showFragment(mainMenuPage, 0);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            int newTabIndex = 0;
             int itemId = item.getItemId();
             if (itemId == R.id.home_navbar) {
-                showFragment(mainMenuPage);
+                newTabIndex = 0;
+                showFragment(mainMenuPage, newTabIndex);
             } else if (itemId == R.id.news_navbar) {
-                showFragment(newsPage);
+                newTabIndex = 1;
+                showFragment(newsPage, newTabIndex);
             } else if (itemId == R.id.map_navbar) {
-                showFragment(createTripPage);
+                newTabIndex = 2;
+                showFragment(createTripPage, newTabIndex);
             } else if (itemId == R.id.favorite_navbar) {
-                showFragment(favouritePage);
+                newTabIndex = 3;
+                showFragment(favouritePage, newTabIndex);
             }
             return true;
         });
@@ -71,33 +66,63 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
         });
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-                if (currentFragment != null && currentFragment.getChildFragmentManager().getBackStackEntryCount() > 0) {
-                    currentFragment.getChildFragmentManager().popBackStack();
-                } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    getSupportFragmentManager().popBackStack();
-                } else {
-                    showExitConfirmationDialog();
-                }
-            }
-        });
+        // обработчик кнопки назад
+//        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+//                if (currentFragment != null && currentFragment.getChildFragmentManager().getBackStackEntryCount() > 0) {
+//                    currentFragment.getChildFragmentManager().popBackStack();
+//                } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+//                    getSupportFragmentManager().popBackStack();
+//                } else {
+//                    showExitConfirmationDialog();
+//                }
+//            }
+//        });
     }
 
-    private void showExitConfirmationDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("Выйти из приложения?")
-                .setMessage("Вы уверены, что хотите выйти?")
-                .setPositiveButton("Да", (dialog, which) -> finish())
-                .setNegativeButton("Нет", null)
-                .show();
-    }
+//    private void showExitConfirmationDialog() {
+//        new AlertDialog.Builder(this)
+//                .setTitle("Выйти из приложения?")
+//                .setMessage("Вы уверены, что хотите выйти?")
+//                .setPositiveButton("Да", (dialog, which) -> {
+//                    finishAffinity(); // Закрывает все активности приложения
+//                })
+//                .setNegativeButton("Нет", null)
+//                .show();
+//    }
 
-    private void showFragment(Fragment fragment) {
+    private void preloadFragments() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.add(R.id.frame_layout, mainMenuPage, "home")
+                .add(R.id.frame_layout, newsPage, "news")
+                .add(R.id.frame_layout, createTripPage, "create_trip")
+                .add(R.id.frame_layout, favouritePage, "favourite")
+                .hide(newsPage)
+                .hide(createTripPage)
+                .hide(favouritePage);
+
+        fragmentTransaction.commit();
+        fragmentManager.executePendingTransactions();
+        getSupportFragmentManager().executePendingTransactions();
+    }
+
+    private void showFragment(Fragment fragment, int newTabIndex) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (newTabIndex > currentTabIndex){
+            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right_next, R.anim.slide_in_left_next);
+        }
+        else {
+            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left_previous, R.anim.slide_in_right_previous);
+        }
+
+        currentTabIndex = newTabIndex;
+
         fragmentTransaction.hide(mainMenuPage)
                 .hide(newsPage)
                 .hide(createTripPage)

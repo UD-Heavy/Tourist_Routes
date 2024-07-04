@@ -191,7 +191,7 @@
                 app:srcCompat="@drawable/line_1" />
 
             <ImageButton
-                android:id="@+id/circle1"
+                android:id="@+id/kurgan_logo"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_below="@id/or"
