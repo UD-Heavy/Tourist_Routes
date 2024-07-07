@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainMenuPage">
+    app:startDestination="@id/home_navbar">
 
     <fragment
-        android:id="@+id/mainMenuPage"
+        android:id="@+id/home_navbar"
         android:name="com.example.test.pages.MainMenuPage"
-        android:label="Main Menu" />
+        android:label="Main Menu"
+        app:launchSingleTop="true"
+        >
+        <action
+            android:id="@+id/action_home_navbar_to_profilePage"
+            app:destination="@id/profilePage" />
+    </fragment>
 
     <fragment
-        android:id="@+id/newsPage"
+        android:id="@+id/news_navbar"
         android:name="com.example.test.pages.NewsPage"
-        android:label="News" />
+        android:label="News"
+        app:launchSingleTop="true"
+        >
+        <action
+            android:id="@+id/action_news_navbar_to_profilePage"
+            app:destination="@id/profilePage" />
+    </fragment>
 
     <fragment
-        android:id="@+id/createTripPage"
+        android:id="@+id/map_navbar"
         android:name="com.example.test.pages.CreateTripPage"
-        android:label="Create Trip" />
+        android:label="Create Trip"
+        app:launchSingleTop="true"
+        >
+        <action
+            android:id="@+id/action_map_navbar_to_profilePage"
+            app:destination="@id/profilePage" />
+    </fragment>
 
     <fragment
-        android:id="@+id/favouritePage"
+        android:id="@+id/favorite_navbar"
         android:name="com.example.test.pages.FavouritePage"
-        android:label="Favourites" />
+        android:label="Favourites"
+        app:launchSingleTop="true"
+        >
+        <action
+            android:id="@+id/action_favorite_navbar_to_profilePage"
+            app:destination="@id/profilePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/profilePage"
+        android:name="com.example.test.pages.ProfilePage"
+        android:label="profile_page"
+        tools:layout="@layout/profile_page" />
 
 </navigation>

@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -85,8 +87,13 @@ public class CreateTripPage extends Fragment {
         rv.addItemDecoration(itemDecoration);
         rv1.addItemDecoration(itemDecoration);
         rv2.addItemDecoration(itemDecoration);
+
+        view.findViewById(R.id.kurgan_logo).setOnClickListener(this::onClickProfile);
         return view;
     }
+    public void onClickProfile(View v) {
+        NavController navController = NavHostFragment.findNavController(this);
+        navController.navigate(R.id.action_map_navbar_to_profilePage);    }
 
     private String getStringResourceByName(String aString) {
         String packageName = requireContext().getPackageName();

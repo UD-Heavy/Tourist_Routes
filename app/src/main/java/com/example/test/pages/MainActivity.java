@@ -12,6 +12,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.test.R;
 import com.example.test.databinding.ActivityMainBinding;
@@ -20,6 +23,7 @@ import com.example.test.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    private NavController navController;
 
     // Ссылки на фрагменты
     private Fragment mainMenuPage;
@@ -34,30 +38,19 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
 
-        mainMenuPage = new MainMenuPage();
-        newsPage = new NewsPage();
-        createTripPage = new CreateTripPage();
-        favouritePage = new FavouritePage();
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
 
-        preloadFragments();
-        showFragment(mainMenuPage, 0);
+        NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+//            int menuItemId = destination.getId();
+//            binding.bottomNavigationView.setSelectedItemId(menuItemId);
+        });
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            int newTabIndex = 0;
-            int itemId = item.getItemId();
-            if (itemId == R.id.home_navbar) {
-                newTabIndex = 0;
-                showFragment(mainMenuPage, newTabIndex);
-            } else if (itemId == R.id.news_navbar) {
-                newTabIndex = 1;
-                showFragment(newsPage, newTabIndex);
-            } else if (itemId == R.id.map_navbar) {
-                newTabIndex = 2;
-                showFragment(createTripPage, newTabIndex);
-            } else if (itemId == R.id.favorite_navbar) {
-                newTabIndex = 3;
-                showFragment(favouritePage, newTabIndex);
-            }
+            NavigationUI.onNavDestinationSelected(item, navController);
             return true;
         });
 
@@ -66,76 +59,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
         });
-        // обработчик кнопки назад
-//        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-//            @Override
-//            public void handleOnBackPressed() {
-//                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
-//                if (currentFragment != null && currentFragment.getChildFragmentManager().getBackStackEntryCount() > 0) {
-//                    currentFragment.getChildFragmentManager().popBackStack();
-//                } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-//                    getSupportFragmentManager().popBackStack();
-//                } else {
-//                    showExitConfirmationDialog();
-//                }
-//            }
-//        });
     }
-
-//    private void showExitConfirmationDialog() {
-//        new AlertDialog.Builder(this)
-//                .setTitle("Выйти из приложения?")
-//                .setMessage("Вы уверены, что хотите выйти?")
-//                .setPositiveButton("Да", (dialog, which) -> {
-//                    finishAffinity(); // Закрывает все активности приложения
-//                })
-//                .setNegativeButton("Нет", null)
-//                .show();
-//    }
-
-    private void preloadFragments() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        fragmentTransaction.add(R.id.frame_layout, mainMenuPage, "home")
-                .add(R.id.frame_layout, newsPage, "news")
-                .add(R.id.frame_layout, createTripPage, "create_trip")
-                .add(R.id.frame_layout, favouritePage, "favourite")
-                .hide(newsPage)
-                .hide(createTripPage)
-                .hide(favouritePage);
-
-        fragmentTransaction.commit();
-        fragmentManager.executePendingTransactions();
-        getSupportFragmentManager().executePendingTransactions();
-    }
-
-    private void showFragment(Fragment fragment, int newTabIndex) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        if (newTabIndex > currentTabIndex){
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right_next, R.anim.slide_in_left_next);
-        }
-        else {
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left_previous, R.anim.slide_in_right_previous);
-        }
-
-        currentTabIndex = newTabIndex;
-
-        fragmentTransaction.hide(mainMenuPage)
-                .hide(newsPage)
-                .hide(createTripPage)
-                .hide(favouritePage)
-                .show(fragment)
-                .commit();
-    }
-    public void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.hide(mainMenuPage);
-        fragmentTransaction.add(R.id.frame_layout, fragment, "profile");
-        fragmentTransaction.show(fragment);
-        fragmentTransaction.commit();
+    @Override
+    public boolean onSupportNavigateUp() {
+        return navController.navigateUp() || super.onSupportNavigateUp();
     }
 }

@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,7 +63,13 @@ public class FavouritePage extends Fragment {
         rv.setLayoutManager(linearLayoutManager);
         rv.setNestedScrollingEnabled(false);
         rv.setAdapter(news);
+
+        view.findViewById(R.id.kurgan_logo).setOnClickListener(this::onClickProfile);
     }
+
+    public void onClickProfile(View v) {
+        NavController navController = NavHostFragment.findNavController(this);
+        navController.navigate(R.id.action_favorite_navbar_to_profilePage);    }
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<MyData> data;

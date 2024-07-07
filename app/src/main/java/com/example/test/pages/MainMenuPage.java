@@ -1,5 +1,7 @@
 package com.example.test.pages;
 
+import static androidx.navigation.Navigation.findNavController;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,9 +63,8 @@ public class MainMenuPage extends Fragment {
 
 
     public void onClickProfile(View v) {
-        ProfilePage profilePage = new ProfilePage();
-        ((MainActivity) getActivity()).replaceFragment(profilePage);
-    }
+        NavController navController = NavHostFragment.findNavController(this);
+        navController.navigate(R.id.action_home_navbar_to_profilePage);    }
 
 
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

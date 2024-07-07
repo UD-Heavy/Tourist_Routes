@@ -190,24 +190,13 @@
                 android:contentDescription="@string/privacy_button_description" />
 
 
-            <ImageButton
-                android:id="@+id/field_settings3"
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-
-                android:layout_below="@id/field_settings2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="19dp"
-                android:background="@drawable/setting3button"
-                android:onClick="onClickFavorites"
-                android:contentDescription="@string/favorites_button_description" />
 
             <ImageButton
                 android:id="@+id/field_settings4"
                 android:layout_width="360dp"
                 android:layout_height="50dp"
 
-                android:layout_below="@id/field_settings3"
+                android:layout_below="@id/field_settings2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting4button"
