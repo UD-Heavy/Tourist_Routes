@@ -6,16 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/authorisation_backgroung_image1"
-
     tools:context=".pages.LoginPage">
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#60000000" />
-
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
@@ -23,8 +19,6 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical"
-
-
         app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/linearLayout"
@@ -64,11 +58,9 @@
         android:background="@drawable/cropped_rectangle"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingBottom="?attr/actionBarSize">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <TextView
@@ -85,16 +77,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginBottom="30dp"
-            >
-
-
+            android:layout_marginBottom="45dp">
             <ImageView
                 android:id="@+id/login_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="20dp"
                 app:srcCompat="@drawable/rectangle_2" />
 
             <ImageView

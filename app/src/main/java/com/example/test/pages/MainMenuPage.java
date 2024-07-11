@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class MainMenuPage extends Fragment {
     RecyclerView rv, rv1;
+
     ArrayList<MyData> dataSource;
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
     MainMenuPage.MyRvAdapter adapterRV_tour, adapterRV_news;
@@ -45,11 +46,11 @@ public class MainMenuPage extends Fragment {
         linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         linearLayoutManager1 = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        adapterRV_tour = new MyRvAdapter(dataSource);
+        adapterRV_tour = new MyRvAdapter(true,dataSource);
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(adapterRV_tour);
 
-        adapterRV_news = new MyRvAdapter(dataSource);
+        adapterRV_news = new MyRvAdapter(false,dataSource);
         rv1.setLayoutManager(linearLayoutManager1);
         rv1.setAdapter(adapterRV_news);
 
@@ -69,10 +70,12 @@ public class MainMenuPage extends Fragment {
 
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int TYPE_CARD = 0;
+        private final boolean isToursView; //
         private static final int TYPE_CARD_WITH_BUTTON = 1;
         private final ArrayList<MyData> data;
 
-        public MyRvAdapter(ArrayList<MyData> data) {
+        public MyRvAdapter(boolean isToursView, ArrayList<MyData> data) {
+            this.isToursView = isToursView;
             this.data = data;
         }
 
@@ -86,7 +89,7 @@ public class MainMenuPage extends Fragment {
                 return new CardViewHolder(view);
             } else {
                 View view = inflater.inflate(R.layout.list_item_main_menu_button, parent, false);
-                return new CardWithButtonViewHolder(view);
+                return new CardWithButtonViewHolder(view, isToursView);
 
             }
         }
@@ -112,7 +115,7 @@ public class MainMenuPage extends Fragment {
 
         @Override
         public int getItemViewType(int position) {
-            // Определите, является ли элемент последним
+            // Определяет, является ли элемент последним
             if (position != data.size()) {
                 return TYPE_CARD;
             } else {
@@ -143,13 +146,19 @@ public class MainMenuPage extends Fragment {
 
             Button button;
 
-            public CardWithButtonViewHolder(@NonNull View itemView) {
+            public CardWithButtonViewHolder(@NonNull View itemView, boolean isToursView) {
                 super(itemView);
                 button = itemView.findViewById(R.id.button_more_news);
                 // Слушатель для кнопки
                 button.setOnClickListener(v -> {
                     // Обработка нажатия кнопки
                 });
+
+                // Изменение текста кнопки в зависимости от параметра isToursView
+                if (isToursView) {
+                    button.setText("Больше туров");
+                }
+
             }
         }
     }

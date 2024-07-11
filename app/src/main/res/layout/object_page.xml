@@ -55,7 +55,6 @@
                     android:id="@+id/fav_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignEnd="@id/tour_label"
                     android:layout_alignParentEnd="true"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
@@ -201,7 +200,8 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
-                android:scrollbars="horizontal"
+                android:scrollbars="none"
+                android:overScrollMode="never"
                 android:clipToPadding="false"
                 android:paddingStart="19dp"
                 android:paddingEnd="19dp" />

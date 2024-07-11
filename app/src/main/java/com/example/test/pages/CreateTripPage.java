@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.R;
@@ -26,10 +27,10 @@ import java.util.ArrayList;
 
 public class CreateTripPage extends Fragment {
 
-    RecyclerView rv, rv1, rv2;
+    RecyclerView rv, rv1;
     ArrayList<MyData> popularDataList, categoriesDataList, ownTripDataList;
 
-    MyRvAdapter adapterRV_popular, adapterRV_categories, adapterRV_own_trip;
+    MyRvAdapter adapterRV_popular, adapterRV_categories;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +39,6 @@ public class CreateTripPage extends Fragment {
 
         rv = view.findViewById(R.id.popular_view);
         rv1 = view.findViewById(R.id.categories_view);
-        rv2 = view.findViewById(R.id.own_trip_view);
 
         // соединение с бд, получаем список объектов
         // ArrayList<Document> DBList = dbRepositories.getAll();
@@ -46,32 +46,29 @@ public class CreateTripPage extends Fragment {
         //      dataSourse.add(data.get("title"), convertBase64ToImage(data.get("image")))
         // }
         popularDataList = new ArrayList<>();
-        popularDataList.add(new MyData(getStringResourceByName("chas"), R.drawable.chas));
-        popularDataList.add(new MyData(getStringResourceByName("aleksandra_nevskogo"), R.drawable.aleksandra_nevskogo));
+        popularDataList.add(new MyData(getStringResourceByName("chas"), R.drawable.kurgan_ts));
+        popularDataList.add(new MyData(getStringResourceByName("aleksandra_nevskogo"), R.drawable.kurgan_ts));
 
         categoriesDataList = new ArrayList<>();
         categoriesDataList.add(new MyData("Природа", R.drawable.priroda));
         categoriesDataList.add(new MyData("Музеи", R.drawable.muzei));
         categoriesDataList.add(new MyData("Культура", R.drawable.kultura));
         categoriesDataList.add(new MyData("Еда", R.drawable.eda));
-
-        ownTripDataList = new ArrayList<>();
-        ownTripDataList.add(new MyData("Создать маршрут", R.drawable.own_trip));
+        categoriesDataList.add(new MyData("Спорт", R.drawable.sport));
+        categoriesDataList.add(new MyData("Развлечения", R.drawable.entertainment));
+        categoriesDataList.add(new MyData("Объекты\nкультуры", R.drawable.obj_cult));
+        categoriesDataList.add(new MyData("Ночные", R.drawable.night_club));
 
 
         // Настройка разметки для карточек (влияет только на визуал)
         adapterRV_popular = new MyRvAdapter(popularDataList, R.layout.item_popular);
         adapterRV_categories = new MyRvAdapter(categoriesDataList, R.layout.item_categories);
-        adapterRV_own_trip = new MyRvAdapter(ownTripDataList, R.layout.item_own_trip);
 
         rv.setLayoutManager(new GridLayoutManager(requireContext(), 2)); // 2 колонки в сетке
-        rv1.setLayoutManager(new GridLayoutManager(requireContext(), categoriesDataList.size())); // Колонки равны количеству категорий
-        rv2.setLayoutManager(new GridLayoutManager(requireContext(), 1)); // 1 колонка
+        rv1.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 
         rv.setAdapter(adapterRV_popular);
         rv1.setAdapter(adapterRV_categories);
-        rv2.setAdapter(adapterRV_own_trip);
-
         // Добавление отступов (values/dimens.xml), только с ним регало нормальные отступы (только визуал)
         int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.spacing_between_items);
         RecyclerView.ItemDecoration itemDecoration = new RecyclerView.ItemDecoration() {
@@ -81,10 +78,8 @@ public class CreateTripPage extends Fragment {
                 outRect.right = spacingInPixels;
             }
         };
-
         rv.addItemDecoration(itemDecoration);
-        rv1.addItemDecoration(itemDecoration);
-        rv2.addItemDecoration(itemDecoration);
+
         return view;
     }
 
@@ -115,10 +110,6 @@ public class CreateTripPage extends Fragment {
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             MyData data = dataList.get(position);
             holder.itemTitle.setText(data.getTitle());
-
-
-
-
 
             // Обработчик клика на изображении всех разделов получаем инфу про изображение, на которое нажали
             //можно будет по ID изображения переключаться между активностями

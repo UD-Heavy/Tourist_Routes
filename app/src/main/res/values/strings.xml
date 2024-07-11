@@ -32,9 +32,9 @@
     <string name="contacts">Контакты:</string>
     <string name="trip_title"><b>Создайте свое путешествие</b></string>
     <string name="search"><b>Поиск</b></string>
-    <string name="popular"><b>Популярное:</b></string>
-    <string name="categories"><b>Категории:</b></string>
-    <string name="own_trip"><b>Собственный маршрут:</b></string>
+    <string name="popular"><b>Популярное</b></string>
+    <string name="categories"><b>Категории</b></string>
+    <string name="own_trip"><b>Собственный маршрут</b></string>
     <string name="chas">Часовня в честь Святой Троицы</string>
     <string name="aleksandra_nevskogo">Приход Александра Невского</string>
     <string name="name_placeholder">Дворец культуры машиностроителей</string>

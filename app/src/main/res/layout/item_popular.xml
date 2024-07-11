@@ -1,44 +1,52 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="0dp">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="0dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="20dp">
 
-    <ImageView
-        android:id="@+id/item_image"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:background="@drawable/chas"
-        android:padding="0dp"
-        android:layout_marginLeft="15dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/item_title"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/item_image"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="7dp"
-        android:fontFamily="@font/inter_extrabold"
-        android:gravity="left"
-        android:textColor="@android:color/white"
-        android:textSize="12sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/kurgan_ts"
+            android:padding="0dp"
+            android:scaleType="centerCrop" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/down_shadow" />
 
-    <ImageView
-        android:id="@+id/favorite_button"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Favorite"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_favorite" />
 
-</RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/inter_extrabold"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/favorite_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_favorite"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="12dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
