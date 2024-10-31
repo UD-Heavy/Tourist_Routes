@@ -43,6 +43,8 @@
     <string name="closed_text">Закрыто. Откроется завтра в %1$s</string>
     <string name="working_hours_placeholder">Ежедневно с 9:00 до 18:00</string>
     <string name="closed_until_placeholder">Закрыто до 9:00</string>
+    <string name="news">Новости</string>
+    <string name="events">События</string>
 
 
     <string name="tour_label"><b>Исторический центр: тур по церквям</b></string>
