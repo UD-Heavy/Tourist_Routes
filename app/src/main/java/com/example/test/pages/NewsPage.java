@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.test.R;
@@ -30,9 +31,11 @@ public class NewsPage extends Fragment {
         super.onCreate(savedInstanceState);
 
         //rv = view.findViewById(R.id.recycler_view);
-
+        FragmentManager fm = requireActivity().getSupportFragmentManager();
+        PageAdapter sa = new PageAdapter(fm, getLifecycle());
         viewPager = view.findViewById(R.id.view_pager);
-        viewPager.setAdapter(new PageAdapter(requireActivity()));
+        viewPager.setAdapter(sa);
+
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -48,6 +51,12 @@ public class NewsPage extends Fragment {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
         // соединение с бд, получаем список объектов
