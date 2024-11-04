@@ -27,6 +27,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 
+/**
+ * Класс, представляющий страницу объекта. Отображает информацию об объекте,
+ * включая фотографии и контактные данные, а также позволяет добавлять в избранное.
+ */
 public class ObjectPage extends AppCompatActivity {
 
     RecyclerView rv;
@@ -38,6 +42,12 @@ public class ObjectPage extends AppCompatActivity {
     private boolean isFavorite = false; // Статус избранного
     private ImageButton favButton;
 
+    /**
+     * Вызывается при создании активности. Устанавливает макет, инициализирует список фотографий,
+     * контактные данные и обработчики событий для избранного и копирования номера телефона.
+     *
+     * @param savedInstanceState объект {@link Bundle}, содержащий данные о предыдущем состоянии активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +119,11 @@ public class ObjectPage extends AppCompatActivity {
         });
     }
 
+    /**
+     * Копирует номер телефона в буфер обмена и отображает уведомление.
+     *
+     * @param phoneNumber номер телефона для копирования
+     */
     private void copyPhoneNumberToClipboard(String phoneNumber) {
         android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         android.content.ClipData clip = android.content.ClipData.newPlainText("Phone Number", phoneNumber);
@@ -116,6 +131,9 @@ public class ObjectPage extends AppCompatActivity {
         Toast.makeText(this, "Phone number copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Обновляет цвет иконки избранного в зависимости от статуса.
+     */
     private void updateFavoriteIcon() {
         if (isFavorite) {
             favButton.setColorFilter(Color.RED); // Заливка красным цветом
@@ -124,10 +142,18 @@ public class ObjectPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * Адаптер для RecyclerView, отображающий список изображений.
+     */
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<Integer> data;
 
+        /**
+         * Конструктор для создания адаптера.
+         *
+         * @param data список ресурсов изображений для отображения
+         */
         public MyRvAdapter(ArrayList<Integer> data) {
             this.data = data;
         }
@@ -160,15 +186,27 @@ public class ObjectPage extends AppCompatActivity {
 
 
 
-        // ViewHolder для карточки без кнопки
+        /**
+         * ViewHolder для отображения отдельного изображения.
+         */
         class CardViewHolder extends RecyclerView.ViewHolder {
             ImageView ivImage;
 
+            /**
+             * Конструктор для создания ViewHolder.
+             *
+             * @param itemView объект {@link View}, представляющий элемент изображения
+             */
             public CardViewHolder(@NonNull View itemView) {
                 super(itemView);
                 ivImage = itemView.findViewById(R.id.imageView);
             }
 
+            /**
+             * Привязывает изображение к ImageView.
+             *
+             * @param item ресурс изображения для отображения
+             */
             public void bind(Integer item) {
                 ivImage.setImageResource(item);
             }

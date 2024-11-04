@@ -22,6 +22,10 @@ import com.example.test.exceptions.EmailNotCorrectException;
 import com.example.test.models.User;
 
 
+/**
+ * Класс, представляющий экран регистрации пользователя. Предоставляет функционал
+ * для ввода данных о пользователе, проверки введённых данных и создания аккаунта.
+ */
 public class RegistrationPage extends AppCompatActivity {
     private EditText loginText;
     private EditText passwordText;
@@ -36,7 +40,13 @@ public class RegistrationPage extends AppCompatActivity {
     private SharedPreferences.Editor sp;
 
 
-    // обработка события при создании окна
+    /**
+     * Инициализирует экран регистрации при его создании. Устанавливает макет,
+     * включает поддержку Edge-to-Edge и вызывает метод {@link 'init} для инициализации полей.
+     *
+     * @param savedInstanceState объект {@link Bundle},
+     * содержащий данные о предыдущем состоянии активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +55,10 @@ public class RegistrationPage extends AppCompatActivity {
         init();
     }
 
-    // объявление объектов для работы
+    /**
+     * Инициализирует элементы пользовательского интерфейса и создаёт
+     * редактор для хранения данных об аккаунте пользователя в SharedPreferences.
+     */
     private void init() {
         registerButton = findViewById(R.id.do_Register);
         loginText = findViewById(R.id.email_text);
@@ -57,7 +70,13 @@ public class RegistrationPage extends AppCompatActivity {
         sp = getSharedPreferences("Account", Context.MODE_PRIVATE).edit();
     }
 
-    // скрытие клавиатуры при нажатии на пустое место
+    /**
+     * Обрабатывает касание экрана для скрытия клавиатуры при нажатии на пустую область.
+     * Если фокус установлен на текстовом поле, то фокус снимается, и клавиатура скрывается.
+     *
+     * @param event объект {@link MotionEvent}, представляющий событие касания экрана
+     * @return возвращает результат обработки события методом {@code super.dispatchTouchEvent(event)}
+     */
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         // Переопределяем метод dispatchTouchEvent для скрытия клавиатуры при касании пустого места
@@ -76,6 +95,12 @@ public class RegistrationPage extends AppCompatActivity {
         return super.dispatchTouchEvent(event);
     }
 
+    /**
+     * Обрабатывает нажатие на кнопку регистрации. Проверяет введённые данные на корректность,
+     * валидирует email, создаёт нового пользователя и сохраняет данные в SharedPreferences.
+     *
+     * @param v объект {@link View}, представляющий кнопку, на которую было нажато
+     */
     public void onClickRegister(View v) {
 
         // берем данные из текстовых полей
@@ -103,6 +128,10 @@ public class RegistrationPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * Сохраняет данные о пользователе в SharedPreferences, включая информацию о
+     * том, что аккаунт создан, а также логин и email пользователя.
+     */
     public void editSharedPreferences() {
         sp.putString("Acc", "true").commit();
         sp.putString("Login", login).commit();

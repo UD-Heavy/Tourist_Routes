@@ -16,6 +16,9 @@ import com.example.test.R;
 import com.example.test.databinding.ActivityMainBinding;
 
 
+/**
+ * Главная активность приложения, отображающая разные фрагменты для навигации по вкладкам.
+ */
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private Fragment createTripPage;
     private Fragment favouritePage;
     private int currentTabIndex = 0;
+
+    /**
+     * Метод вызывается при создании активности. Устанавливает контент, инициализирует фрагменты
+     * и настраивает навигацию между ними.
+     *
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
 //                .show();
 //    }
 
+    /**
+     * Предварительно загружает фрагменты, добавляя их в стек и скрывая,
+     * чтобы обеспечить быструю смену вкладок.
+     */
     private void preloadFragments() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -109,6 +123,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().executePendingTransactions();
     }
 
+    /**
+     * Показать фрагмент, соответствующий выбранной вкладке, с анимацией перехода.
+     *
+     * @param fragment    фрагмент для отображения
+     * @param newTabIndex индекс выбранной вкладки
+     */
     private void showFragment(Fragment fragment, int newTabIndex) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -122,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
         currentTabIndex = newTabIndex;
 
+        // Скрыть все фрагменты и показать выбранный
         fragmentTransaction.hide(mainMenuPage)
                 .hide(newsPage)
                 .hide(createTripPage)
@@ -129,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
                 .show(fragment)
                 .commit();
     }
+
+    /**
+     * Заменяет текущий фрагмент на новый, заменяя содержимое frame_layout.
+     *
+     * @param fragment фрагмент для замены
+     */
     public void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -17,6 +17,9 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
+/**
+ * Фрагмент, представляющий страницу событий с отображением списка новостей или событий.
+ */
 public class EventFragment extends Fragment {
     RecyclerView rv;
     ArrayList<MyData> news_list;
@@ -25,11 +28,27 @@ public class EventFragment extends Fragment {
     MyRvAdapter news;
 
 
+    /**
+     * Создает и возвращает иерархию представлений, связанную с этим фрагментом.
+     *
+     * @param inflater           объект {@link LayoutInflater} для создания представлений фрагмента
+     * @param container          родительский контейнер, к которому будет добавлено представление фрагмента
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     * @return корневое представление для данного фрагмента
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_event, container, false);
     }
+
+    /**
+     * Метод вызывается сразу после создания представления фрагмента.
+     * Инициализирует RecyclerView и адаптер для отображения списка новостей или событий.
+     *
+     * @param view               корневое представление, возвращаемое {@link #onCreateView}
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     */
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -64,10 +83,21 @@ public class EventFragment extends Fragment {
 
         rv.setAdapter(news);
     }
+
+
+    /**
+     * Адаптер для отображения элементов в RecyclerView на странице событий.
+     */
     static class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<MyData> data;
 
+
+        /**
+         * Конструктор адаптера, инициализирующий список данных.
+         *
+         * @param data список данных, которые будут отображаться
+         */
         public MyRvAdapter(ArrayList<MyData> data) {
             this.data = data;
         }
@@ -98,15 +128,27 @@ public class EventFragment extends Fragment {
             return data.size();
         }
 
-        // ViewHolder для карточки без кнопки
+        /**
+         * ViewHolder для отображения элемента списка с изображением.
+         */
         static class CardViewHolder extends RecyclerView.ViewHolder {
             ImageView ivImage;
 
+            /**
+             * Конструктор для инициализации представлений ViewHolder.
+             *
+             * @param itemView представление элемента списка
+             */
             public CardViewHolder(@NonNull View itemView) {
                 super(itemView);
                 ivImage = itemView.findViewById(R.id.image_view);
             }
 
+            /**
+             * Привязывает данные к представлениям ViewHolder.
+             *
+             * @param item объект {@link MyData}, содержащий данные для отображения
+             */
             public void bind(MyData item) {
                 ivImage.setImageResource(item.getImageResId());
             }

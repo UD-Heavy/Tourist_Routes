@@ -16,10 +16,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.test.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+/**
+ * Класс, представляющий активность с BottomSheet, показывающую информацию о туре.
+ * Содержит элементы интерфейса для управления избранным и анимации.
+ */
 public class TourSheetActivity extends AppCompatActivity {
     private boolean isFavorite = false; // Статус избранного
     private ImageButton favButton;
 
+
+    /**
+     * Вызывается при создании активности. Инициализирует интерфейс, настраивает BottomSheet
+     * и анимацию для кнопки избранного.
+     *
+     * @param savedInstanceState объект {@link Bundle}, содержащий данные о предыдущем состоянии активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +74,11 @@ public class TourSheetActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Обновляет цвет иконки избранного в зависимости от текущего статуса.
+     * Если элемент помечен как избранный, иконка окрашивается в красный цвет.
+     */
     private void updateFavoriteIcon() {
         if (isFavorite) {
             favButton.setColorFilter(Color.RED); // Заливка красным цветом

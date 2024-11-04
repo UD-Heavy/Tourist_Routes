@@ -17,6 +17,9 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
+/**
+ * Фрагмент, представляющий страницу избранного, где отображается список сохраненных элементов.
+ */
 public class FavouritePage extends Fragment {
 
     RecyclerView rv;
@@ -25,10 +28,25 @@ public class FavouritePage extends Fragment {
 
     MyRvAdapter news;
 
+    /**
+     * Создает и возвращает иерархию представлений, связанную с этим фрагментом.
+     *
+     * @param inflater           объект {@link LayoutInflater} для создания представлений фрагмента
+     * @param container          родительский контейнер, к которому будет добавлено представление фрагмента
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     * @return возвращает корневое представление для данного фрагмента
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.favourite_page, container, false);
     }
 
+    /**
+     * Метод вызывается сразу после создания представления фрагмента.
+     * Инициализирует RecyclerView и адаптер для отображения списка избранных элементов.
+     *
+     * @param view               корневое представление, возвращаемое {@link #onCreateView}
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +80,19 @@ public class FavouritePage extends Fragment {
         rv.setNestedScrollingEnabled(false);
         rv.setAdapter(news);
     }
+
+    /**
+     * Адаптер для отображения элементов в RecyclerView на странице избранного.
+     */
     class MyRvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private final ArrayList<MyData> data;
 
+        /**
+         * Конструктор адаптера, инициализирующий список данных.
+         *
+         * @param data список данных, которые будут отображаться
+         */
         public MyRvAdapter(ArrayList<MyData> data) {
             this.data = data;
         }
@@ -98,17 +125,29 @@ public class FavouritePage extends Fragment {
 
 
 
-        // ViewHolder для карточки без кнопки
+        /**
+         * ViewHolder для отображения отдельного элемента списка в RecyclerView.
+         */
         class CardViewHolder extends RecyclerView.ViewHolder {
             TextView tvTitle;
             ImageView ivImage;
 
+            /**
+             * Конструктор для инициализации представлений ViewHolder.
+             *
+             * @param itemView представление элемента списка
+             */
             public CardViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvTitle = itemView.findViewById(R.id.text_view);
                 ivImage = itemView.findViewById(R.id.image_view);
             }
 
+            /**
+             * Привязывает данные к представлениям ViewHolder.
+             *
+             * @param item объект {@link MyData}, содержащий данные для отображения
+             */
             public void bind(MyData item) {
                 tvTitle.setText(item.getTitle());
                 ivImage.setImageResource(item.getImageResId());

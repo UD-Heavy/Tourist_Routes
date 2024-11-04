@@ -15,6 +15,9 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
+/**
+ * Фрагмент для отображения страницы новостей с табами и ViewPager для переключения между вкладками.
+ */
 public class NewsPage extends Fragment {
 
     ArrayList<MyData> news_list;
@@ -22,10 +25,25 @@ public class NewsPage extends Fragment {
 
     //MyRvAdapter news;
 
+    /**
+     * Создает и возвращает иерархию представлений, связанную с данным фрагментом.
+     *
+     * @param inflater           объект {@link LayoutInflater} для раздувания представления фрагмента
+     * @param container          родительский контейнер, к которому будет присоединен фрагмент
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     * @return возвращает корневое представление для фрагмента
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.news_page, container, false);
     }
 
+    /**
+     * Вызывается после того, как представление было создано. Устанавливает адаптер для ViewPager
+     * и настраивает TabLayout для переключения между страницами.
+     *
+     * @param view               представление фрагмента
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
