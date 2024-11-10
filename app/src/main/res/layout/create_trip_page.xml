@@ -95,8 +95,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popular_view"
                 android:layout_width="match_parent"
-                android:layout_height="139dp"
-                android:layout_marginTop="0dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"

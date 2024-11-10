@@ -3,7 +3,8 @@
     <string name="lets_start"><b>Давай начнем!</b></string>
     <string name="login"><b>Вход</b></string>
     <string name="text"><b>Создай своё путешествие</b></string>
-    <string name="login_field_text"><b>Логин</b></string>
+    <string name="email_field_text"><b>Почта</b></string>
+    <string name="login_field_text"><b>Имя пользователя</b></string>
     <string name="password_field_text"><b>Пароль</b></string>
     <string name="forgot_pass"><b>Забыли пароль?</b></string>
     <string name="enter_text"><b>Войти</b></string>
@@ -42,6 +43,8 @@
     <string name="closed_text">Закрыто. Откроется завтра в %1$s</string>
     <string name="working_hours_placeholder">Ежедневно с 9:00 до 18:00</string>
     <string name="closed_until_placeholder">Закрыто до 9:00</string>
+    <string name="news">Новости</string>
+    <string name="events">События</string>
 
 
     <string name="tour_label"><b>Исторический центр: тур по церквям</b></string>

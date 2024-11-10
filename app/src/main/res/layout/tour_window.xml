@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/authorisation_backgroung_image1"
+
     tools:context=".pages.TourSheetActivity">
 
 
@@ -52,18 +52,19 @@
                     android:textColor="#333333"
                     android:textSize="26sp" />
 
+
                 <ImageButton
+                    android:id="@+id/fav_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignEnd="@id/tour_label"
-                    android:layout_alignRight="@id/tour_label"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="25dp"
-                    android:layout_marginRight="25dp"
-                    android:background="@drawable/fav_icon">
+                    android:background="@null"
+                    android:src="@drawable/fav_icon"
+                    android:soundEffectsEnabled="false">
 
                 </ImageButton>
 
@@ -267,9 +268,56 @@
                 </LinearLayout>
             </RelativeLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#ffffff">
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="#F8F7F7"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginTop="15dp">
+
+                <android.widget.Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_1077"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="Оставить отзыв"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    />
+
+                <android.widget.Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/rectangle_1077"
+                    android:layout_marginStart="15dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="Заказать\nтур"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    />
+                <android.widget.Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/rectangle_1077"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="Состав тура"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_semibold"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    />
 
             </LinearLayout>
 

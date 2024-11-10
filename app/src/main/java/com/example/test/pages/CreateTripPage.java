@@ -24,6 +24,10 @@ import com.example.test.models.MyData;
 
 import java.util.ArrayList;
 
+/**
+ * Фрагмент, представляющий страницу создания путешествия.
+ * Содержит три секции для популярных мест, категорий и пользовательских маршрутов.
+ */
 public class CreateTripPage extends Fragment {
 
     RecyclerView rv, rv1, rv2;
@@ -31,6 +35,14 @@ public class CreateTripPage extends Fragment {
 
     MyRvAdapter adapterRV_popular, adapterRV_categories, adapterRV_own_trip;
 
+    /**
+     * Создает и возвращает иерархию представлений, связанную с этим фрагментом.
+     *
+     * @param inflater           объект {@link LayoutInflater} для создания представлений фрагмента
+     * @param container          родительский контейнер, к которому будет добавлено представление фрагмента
+     * @param savedInstanceState объект {@link Bundle} с сохраненным состоянием фрагмента
+     * @return корневое представление для данного фрагмента
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.create_trip_page, container, false);
@@ -88,21 +100,37 @@ public class CreateTripPage extends Fragment {
         return view;
     }
 
+    /**
+     * Возвращает строковый ресурс по его имени.
+     *
+     * @param aString имя ресурса
+     * @return строка ресурса
+     */
     private String getStringResourceByName(String aString) {
         String packageName = requireContext().getPackageName();
         int resId = getResources().getIdentifier(aString, "string", packageName);
         return getString(resId);
     }
 
-    // Универсальный адаптер для всех элементов (визуал для эффекта кликов)
+    /**
+     * Адаптер для отображения элементов в RecyclerView с эффектом клика
+     * и возможностью добавления в избранное.
+     */
     public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyViewHolder> {
         private ArrayList<MyData> dataList;
         private int layoutId;
 
+        /**
+         * Конструктор адаптера, инициализирующий список данных и макет элемента.
+         *
+         * @param dataList список данных, которые будут отображаться
+         * @param layoutId идентификатор макета для отображения элементов
+         */
         public MyRvAdapter(ArrayList<MyData> dataList, int layoutId) {
             this.dataList = dataList;
             this.layoutId = layoutId;
         }
+
 
         @NonNull
         @Override
@@ -157,12 +185,20 @@ public class CreateTripPage extends Fragment {
             return dataList.size();
         }
 
+        /**
+         * ViewHolder для элементов списка, отображающий заголовок и изображение.
+         */
         public class MyViewHolder extends RecyclerView.ViewHolder {
             TextView itemTitle;
             ImageView itemImage;
             ImageView favoriteButton;
             boolean isFavorite;
 
+            /**
+             * Конструктор, инициализирующий представления элемента списка.
+             *
+             * @param itemView представление элемента списка
+             */
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 itemTitle = itemView.findViewById(R.id.item_title);

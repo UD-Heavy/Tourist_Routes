@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".pages.FavouritePage">
+    tools:context=".pages.FavouritePage"
+    android:background="#ffffff">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,14 +89,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:paddingBottom="?attr/actionBarSize"
-            >
+            android:overScrollMode="never"
+            android:background="#ffffff">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:scrollbars="none"
+
 
 
                 />
