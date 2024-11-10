@@ -75,7 +75,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/readytour"
+                    android:text="@string/MainMenuPageReadyTour"
                     android:textColor="#333333"
                     android:textSize="25sp" />
 
@@ -91,7 +91,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/inter_extrabold"
-                    android:text="@string/all"
+                    android:text="@string/MainMenuPageAll"
                     android:textColor="#333333"
                     android:textSize="15sp"
                     app:backgroundTint="#E7E5E5" />
@@ -126,7 +126,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/newslabel"
+                    android:text="@string/MainMenuPageNews"
                     android:textColor="#333333"
                     android:textSize="25sp" />
 
@@ -141,7 +141,7 @@
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/inter_extrabold"
                     android:padding="0dp"
-                    android:text="@string/all"
+                    android:text="@string/MainMenuPageAll"
                     android:textColor="#333333"
                     android:textSize="15sp"
                     app:backgroundTint="#E7E5E5" />
