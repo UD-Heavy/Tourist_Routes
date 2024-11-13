@@ -117,16 +117,18 @@
                     android:stepSize="0.0" />
 
                 <TextView
+                    android:id="@+id/ratingNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="4.1" />
+                    android:text="2.1" />
 
                 <TextView
+                    android:id="@+id/reviewCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="(52)" />
+                    android:text="(53)" />
 
             </LinearLayout>
 

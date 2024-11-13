@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.3")
 
     implementation(libs.appcompat)
     implementation(libs.material)

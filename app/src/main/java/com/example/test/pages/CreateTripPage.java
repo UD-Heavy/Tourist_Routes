@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,13 @@ import com.example.test.R;
 import com.example.test.models.MyData;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import kotlin.jvm.internal.TypeReference;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 /**
  * Фрагмент, представляющий страницу создания путешествия.
@@ -52,14 +60,21 @@ public class CreateTripPage extends Fragment {
         rv1 = view.findViewById(R.id.categories_view);
         rv2 = view.findViewById(R.id.own_trip_view);
 
+        // Вызываем метод инициализации вместо прямого создания списка
+        initializePopularData();
+
         // соединение с бд, получаем список объектов
         // ArrayList<Document> DBList = dbRepositories.getAll();
         // for (MyData data : DBList){
         //      dataSourse.add(data.get("title"), convertBase64ToImage(data.get("image")))
         // }
-        popularDataList = new ArrayList<>();
+
+        /*popularDataList = new ArrayList<>();
         popularDataList.add(new MyData(getStringResourceByName("chas"), R.drawable.chas));
-        popularDataList.add(new MyData(getStringResourceByName("aleksandra_nevskogo"), R.drawable.aleksandra_nevskogo));
+        popularDataList.add(new MyData(getStringResourceByName("aleksandra_nevskogo"), R.drawable.aleksandra_nevskogo));*/
+
+        initializePopularData();
+
 
         categoriesDataList = new ArrayList<>();
         categoriesDataList.add(new MyData("Природа", R.drawable.priroda));
@@ -72,9 +87,11 @@ public class CreateTripPage extends Fragment {
 
 
         // Настройка разметки для карточек (влияет только на визуал)
-        adapterRV_popular = new MyRvAdapter(popularDataList, R.layout.item_popular);
-        adapterRV_categories = new MyRvAdapter(categoriesDataList, R.layout.item_categories);
-        adapterRV_own_trip = new MyRvAdapter(ownTripDataList, R.layout.item_own_trip);
+        // Создание адаптеров для каждого RecyclerView
+        adapterRV_popular = new MyRvAdapter(popularDataList, R.layout.item_popular, true); // true для "Популярное"
+        adapterRV_categories = new MyRvAdapter(categoriesDataList, R.layout.item_categories, false); // false для остальных
+        adapterRV_own_trip = new MyRvAdapter(ownTripDataList, R.layout.item_own_trip, false);
+
 
         rv.setLayoutManager(new GridLayoutManager(requireContext(), 2)); // 2 колонки в сетке
         rv1.setLayoutManager(new GridLayoutManager(requireContext(), categoriesDataList.size())); // Колонки равны количеству категорий
@@ -119,6 +136,7 @@ public class CreateTripPage extends Fragment {
     public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyViewHolder> {
         private ArrayList<MyData> dataList;
         private int layoutId;
+        private boolean isPopularSection; // Флаг, указывающий на секцию
 
         /**
          * Конструктор адаптера, инициализирующий список данных и макет элемента.
@@ -126,9 +144,11 @@ public class CreateTripPage extends Fragment {
          * @param dataList список данных, которые будут отображаться
          * @param layoutId идентификатор макета для отображения элементов
          */
-        public MyRvAdapter(ArrayList<MyData> dataList, int layoutId) {
+        public MyRvAdapter(ArrayList<MyData> dataList, int layoutId, boolean isPopularSection) {
             this.dataList = dataList;
             this.layoutId = layoutId;
+            this.isPopularSection = isPopularSection;
+
         }
 
 
@@ -143,20 +163,32 @@ public class CreateTripPage extends Fragment {
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             MyData data = dataList.get(position);
             holder.itemTitle.setText(data.getTitle());
+            holder.itemImage.setImageResource(data.getImageResId());
 
 
+            // Обработчик клика только для раздела "Популярное"
+            if (isPopularSection) {
+                holder.itemImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MyData data = dataList.get(holder.getAdapterPosition());
+                        Intent intent = new Intent(v.getContext(), ObjectPage.class);
+                        intent.putExtra("place_data", data);
+                        v.getContext().startActivity(intent);
+                    }
+                });
+            }
 
-
-
+/*
             // Обработчик клика на изображении всех разделов получаем инфу про изображение, на которое нажали
-            //можно будет по ID изображения переключаться между активностями
+            // можно будет по ID изображения переключаться между активностями
             holder.itemImage.setImageResource(data.getImageResId());
             holder.itemImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), "Clicked on image: " + data.getTitle(), Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
 
 
 
@@ -189,9 +221,9 @@ public class CreateTripPage extends Fragment {
          * ViewHolder для элементов списка, отображающий заголовок и изображение.
          */
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            TextView itemTitle;
-            ImageView itemImage;
-            ImageView favoriteButton;
+            final TextView itemTitle;
+            final ImageView itemImage;
+            final ImageView favoriteButton;
             boolean isFavorite;
 
             /**
@@ -199,13 +231,111 @@ public class CreateTripPage extends Fragment {
              *
              * @param itemView представление элемента списка
              */
-            public MyViewHolder(@NonNull View itemView) {
+            MyViewHolder(@NonNull View itemView) {
                 super(itemView);
                 itemTitle = itemView.findViewById(R.id.item_title);
                 itemImage = itemView.findViewById(R.id.item_image);
                 favoriteButton = itemView.findViewById(R.id.favorite_button);
-                isFavorite = false;
             }
         }
     }
+
+    // Добавляем JSON строку как поле класса
+    private static final String placesJson = "{"
+            + "\"places\": ["
+            + "  {"
+            + "    \"title\": \"Часовня в честь Святой Троицы\","
+            + "    \"address\": \"ул. Комсомольская, 21\","
+            + "    \"category\": \"Святые места / Церкви\","
+            + "    \"rating\": 1.4,"
+            + "    \"reviewCount\": 152,"
+            + "    \"workingHours\": \"Ежедневно с 10:00 до 21:00\","
+            + "    \"openUntil\": \"Открыто до 21:00\","
+            + "    \"phoneNumber\": \"+7 999 999 52 52\","
+            + "    \"additionalImages\": ["
+            + "      \"R.drawable.image2\","
+            + "      \"R.drawable.image1\","
+            + "      \"R.drawable.image3\","
+            + "      \"R.drawable.image1\","
+            + "      \"R.drawable.image1\""
+            + "    ]"
+            + "  },"
+
+            + "  {"
+            + "    \"title\": \"Приход Александра Невского\","
+            + "    \"address\": \"Название улицы 2\","
+            + "    \"category\": \"Категория / подкатегория\","
+            + "    \"rating\": 4.8,"
+            + "    \"reviewCount\": 452,"
+            + "    \"workingHours\": \"Ежедневно с 9:00 до 18:00\","
+            + "    \"openUntil\": \"Открыто до 18:00\","
+            + "    \"phoneNumber\": \"+7 999 273 52 99\","
+            + "    \"additionalImages\": ["
+            + "      \"R.drawable.image1\","
+            + "      \"R.drawable.image2\","
+            + "      \"R.drawable.image3\""
+            + "    ]"
+            + "  }"
+            + "]"
+            + "}";
+
+    // Добавляем метод инициализации как метод класса
+    private void initializePopularData() {
+
+        if (popularDataList == null) {
+            popularDataList = new ArrayList<>();
+        } else {
+            popularDataList.clear();
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(placesJson);
+            JSONArray placesArray = jsonObject.getJSONArray("places");
+
+            //popularDataList = new ArrayList<>();
+
+            // предварительное выделение памяти
+            popularDataList.ensureCapacity(placesArray.length());
+
+            for (int i = 0; i < placesArray.length(); i++) {
+                JSONObject place = placesArray.getJSONObject(i);
+
+                ArrayList<Integer> additionalImages = new ArrayList<>();
+                JSONArray imagesArray = place.getJSONArray("additionalImages");
+                for (int j = 0; j < imagesArray.length(); j++) {
+                    // Преобразуем строку "R.drawable.image1" в реальный id ресурса
+                    String imageName = imagesArray.getString(j)
+                            .replace("R.drawable.", ""); // Получаем только имя ресурса
+                    int resourceId = getResources().getIdentifier(
+                            imageName,
+                            "drawable",
+                            requireContext().getPackageName()
+                    );
+                    additionalImages.add(resourceId);
+                }
+
+                MyData data = new MyData(
+                        place.getString("title"),
+                        R.drawable.chas, // используем временное изображение
+                        place.getString("address"),
+                        place.getString("category"),
+                        place.getDouble("rating"),
+                        place.getInt("reviewCount"),
+                        place.getString("workingHours"),
+                        place.getString("openUntil"),
+                        place.getString("phoneNumber"),
+                        additionalImages
+                );
+
+                popularDataList.add(data);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            popularDataList = new ArrayList<>();
+            popularDataList.add(new MyData(getStringResourceByName("chas"), R.drawable.chas));
+            popularDataList.add(new MyData(getStringResourceByName("aleksandra_nevskogo"), R.drawable.aleksandra_nevskogo));
+        }
+    }
+
+
 }

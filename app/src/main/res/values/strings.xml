@@ -46,6 +46,9 @@
     <string name="news">Новости</string>
     <string name="events">События</string>
 
+    <string name="rating_format">%.1f</string>
+    <string name="review_count_format">(%d)</string>
+
 
     <string name="tour_label"><b>Исторический центр: тур по церквям</b></string>
     <string name="tour_desc">Познакомьтесь с культовыми сооружениями, предназначенными для
