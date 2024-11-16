@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,48 +54,84 @@ public class ObjectPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        photo_list = new ArrayList<>();
-        photo_list.add(R.drawable.image1);
-        photo_list.add(R.drawable.image2);
-        photo_list.add(R.drawable.image3);
-        photo_list.add(R.drawable.image1);
-        photo_list.add(R.drawable.image2);
-
-        // объявление объектов
         setContentView(R.layout.object_page);
         View bottomSheet = findViewById(R.id.sheet);
         LinearLayout layout = findViewById(R.id.baseinfo);
 
-        rv = findViewById(R.id.images_view);
-        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        // Получаем данные из Intent
+        MyData placeData = (MyData) getIntent().getSerializableExtra("place_data");
 
-        photos = new MyRvAdapter(photo_list);
+        if (placeData != null) {
+            // Название объекта
+            TextView titleView = findViewById(R.id.tour_label);
+            titleView.setText(placeData.getTitle());
 
-        phoneNumberText = findViewById(R.id.contacts);
-        rv.setLayoutManager(linearLayoutManager);
+            // Адрес
+            TextView addressView = findViewById(R.id.tour_label2);
+            addressView.setText(placeData.getAddress());
 
-        rv.setAdapter(photos);
+            // Категория
+            TextView categoryView = findViewById(R.id.tour_label3);
+            categoryView.setText(placeData.getCategory());
 
+            // Рейтинг в звездочках
+            RatingBar ratingBar = findViewById(R.id.score);
+            ratingBar.setRating((float) placeData.getRating());
+
+            // Рейтинг в баллах
+            TextView ratingValue = findViewById(R.id.ratingNumber);
+            ratingValue.setText(getString(R.string.rating_format, placeData.getRating()));
+
+            // Количество отзывов
+            TextView reviewCount = findViewById(R.id.reviewCount);
+            reviewCount.setText(getString(R.string.review_count_format, placeData.getReviewCount()));
+
+            // Часы работы
+            TextView workingHoursView = findViewById(R.id.tour_label4);
+            workingHoursView.setText(placeData.getWorkingHours());
+
+            // Статус открытия
+            TextView openUntilView = findViewById(R.id.tour_label5);
+            openUntilView.setText(placeData.getOpenUntil());
+
+            // Телефон
+            TextView contactsView = findViewById(R.id.contacts);
+            contactsView.setText(placeData.getPhoneNumber());
+            contactsView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    copyPhoneNumberToClipboard(placeData.getPhoneNumber());
+                }
+            });
+
+            // Дополнительные изображения
+            rv = findViewById(R.id.images_view);
+            if (placeData.getAdditionalImages() != null && !placeData.getAdditionalImages().isEmpty()) {
+                photo_list = placeData.getAdditionalImages();
+            } else {
+                // Если изображений нет в JSON, используем дефолтный список
+                photo_list = new ArrayList<>();
+                photo_list.add(R.drawable.image1);
+                photo_list.add(R.drawable.image2);
+                photo_list.add(R.drawable.image3);
+            }
+
+            linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            photos = new MyRvAdapter(photo_list);
+            rv.setLayoutManager(linearLayoutManager);
+            rv.setAdapter(photos);
+
+        }
+
+        // Настройка кнопки избранного
         favButton = findViewById(R.id.fav_button);
         final Animation favAnim = AnimationUtils.loadAnimation(this, R.anim.fav_anim);
         favButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isFavorite = !isFavorite; // Переключение статуса избранного
+                isFavorite = !isFavorite;
                 updateFavoriteIcon();
                 favButton.startAnimation(favAnim);
-
-            }
-        });
-
-        String phoneNumber = "+7 999 999 99 99"; // Replace with actual database retrieval
-        phoneNumberText.setText(phoneNumber);
-
-        // Set click listener to copy phone number on click
-        phoneNumberText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                copyPhoneNumberToClipboard(phoneNumber);
             }
         });
 
@@ -102,22 +139,16 @@ public class ObjectPage extends AppCompatActivity {
         layout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                // Удаление слушателя, чтобы он не вызывался снова
                 layout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                // Получение высоты макета
                 int height = layout.getMeasuredHeight();
-
-                // Получение BottomSheetBehavior из View
                 BottomSheetBehavior<View> bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
-
-                // Установка состояния и высоты
                 bottomSheetBehavior.setPeekHeight(height);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                bottomSheetBehavior.setHideable(true); // Позволяет скрывать BottomSheet полностью
+                bottomSheetBehavior.setHideable(true);
             }
         });
     }
+
 
     /**
      * Копирует номер телефона в буфер обмена и отображает уведомление.
