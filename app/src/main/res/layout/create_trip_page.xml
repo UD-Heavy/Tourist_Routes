@@ -86,7 +86,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/popular"
+                    android:text="@string/CreateTripPagePopular"
                     android:textColor="#333333"
                     android:textSize="25sp" />
 
@@ -116,7 +116,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="@string/categories"
+                    android:text="@string/CreateTripPageCategories"
                     android:textColor="#333333"
                     android:textSize="25sp" />
 
@@ -140,7 +140,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/inter_bold"
-                android:text="@string/own_trip"
+                android:text="@string/CreateTripPageOwnTrip"
                 android:textColor="#333333"
                 android:textSize="25sp" />
 

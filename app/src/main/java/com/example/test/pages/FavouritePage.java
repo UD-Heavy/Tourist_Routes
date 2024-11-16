@@ -60,17 +60,17 @@ public class FavouritePage extends Fragment {
         // }
         news_list = new ArrayList<>();
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
 
         linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
 

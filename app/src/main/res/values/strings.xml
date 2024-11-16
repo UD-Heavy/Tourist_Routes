@@ -1,71 +1,68 @@
 <resources>
-    <string name="app_name">Test</string>
-    <string name="lets_start"><b>Давай начнем!</b></string>
-    <string name="login"><b>Вход</b></string>
-    <string name="text"><b>Создай своё путешествие</b></string>
-    <string name="email_field_text"><b>Почта</b></string>
-    <string name="login_field_text"><b>Имя пользователя</b></string>
-    <string name="password_field_text"><b>Пароль</b></string>
-    <string name="forgot_pass"><b>Забыли пароль?</b></string>
-    <string name="enter_text"><b>Войти</b></string>
-    <string name="register_text"><b>Создать аккаунт</b></string>
-    <string name="or"><b>или</b></string>
-    <string name="register_label"><b>Регистрация</b></string>
-    <string name="email"><b>Почта</b></string>
-    <string name="register_text2"><b>Создать</b></string>
-    <string name="repeat_pass"><b>Повторите пароль</b></string>
-    <string name="mainTitle"><b>Туры и новости</b></string>
-    <string name="newsTitle"><b>Новости и события</b></string>
-    <string name="favouriteTitle"><b>Избранное</b></string>
-    <string name="favouritePlaces"><b>Места</b></string>
-    <string name="favouriteTours"><b>Туры</b></string>
-    <string name="readytour"><b>Готовые туры</b></string>
-    <string name="all"><b>Все</b></string>
-    <string name="newslabel"><b>Новости и события</b></string>
-    <string name="first_card"><b>Исторический центр: тур по церквям</b></string>
-    <string name="second_card"><b>Культурные центры Кургана</b></string>
-    <string name="third_card"><b>Концерт в Филармонии: билеты раскуплены!</b></string>
-    <string name="more_news"><b>Больше новостей</b></string>
-    <string name="name_profile"><b>Профиль</b></string>
-    <string name="name_settings"><b>Настройки</b></string>
-    <string name="button1_settings"><b>Личные данные</b></string>
-    <string name="contacts">Контакты:</string>
-    <string name="trip_title"><b>Создайте свое путешествие</b></string>
-    <string name="search"><b>Поиск</b></string>
-    <string name="popular"><b>Популярное:</b></string>
-    <string name="categories"><b>Категории:</b></string>
-    <string name="own_trip"><b>Собственный маршрут:</b></string>
-    <string name="chas">Часовня в честь Святой Троицы</string>
-    <string name="aleksandra_nevskogo">Приход Александра Невского</string>
-    <string name="name_placeholder">Дворец культуры машиностроителей</string>
-    <string name="address_placeholder">Карла Маркса, 70</string>
-    <string name="categ_placeholder">Дома / Дворцы культуры</string>
-    <string name="closed_text">Закрыто. Откроется завтра в %1$s</string>
-    <string name="working_hours_placeholder">Ежедневно с 9:00 до 18:00</string>
-    <string name="closed_until_placeholder">Закрыто до 9:00</string>
-    <string name="news">Новости</string>
-    <string name="events">События</string>
+    <string name="AppName">Test</string>
+    <string name="RegisterAndLoginPageLetsStart"><b>Давай начнем!</b></string>
+    <string name="LoginPageTextViewLogin"><b>Вход</b></string>
+    <string name="RegisterAndLoginPageText"><b>Создай своё путешествие</b></string>
+    <string name="LoginFieldEmailText"><b>Почта</b></string>
+    <string name="LoginFieldLoginText"><b>Имя пользователя</b></string>
+    <string name="RegisterAndLoginPagePasswordFieldText"><b>Пароль</b></string>
+    <string name="LoginPageForgotPass"><b>Забыли пароль?</b></string>
+    <string name="LoginPageEnterText"><b>Войти</b></string>
+    <string name="RegisterAndLoginPageRegisterText"><b>Создать аккаунт</b></string>
+    <string name="LoginPageOr"><b>или</b></string>
+    <string name="RegistePagreRegisterLabel"><b>Регистрация</b></string>
+    <string name="RegisterPageEmail"><b>Почта</b></string>
+    <string name="RegisterPageRegisterText2"><b>Создать</b></string>
+    <string name="RegisterPageRepeatPass"><b>Повторите пароль</b></string>
+    <string name="NewsPageTitle"><b>Новости и события</b></string>
+    <string name="FavouritePageTitle"><b>Избранное</b></string>
+    <string name="FavouritePagePlaces"><b>Места</b></string>
+    <string name="FavouritePageTours"><b>Туры</b></string>
+    <string name="MainMenuPageReadyTour"><b>Готовые туры</b></string>
+    <string name="MainMenuPageAll"><b>Все</b></string>
+    <string name="MainMenuPageNews"><b>Новости и события</b></string>
+    <!-- Тянуть ID !--> <string name="first_card"><b>Исторический центр: тур по церквям</b></string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--> <string name="second_card"><b>Культурные центры Кургана</b></string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--> <string name="third_card"><b>Концерт в Филармонии: билеты раскуплены!</b></string> <!-- Тянуть ID !-->
+    <string name="ListItemMainMenuButtonMoreNews"><b>Больше новостей</b></string>
+    <string name="ProfilePageNameProfile"><b>Профиль</b></string>
+    <string name="ProfilePageNameSettings"><b>Настройки</b></string>
+    <string name="ObjectPageContacts">Контакты:</string>
+    <string name="CreateTripPagePopular"><b>Популярное:</b></string>
+    <string name="CreateTripPageCategories"><b>Категории:</b></string>
+    <string name="CreateTripPageOwnTrip"><b>Собственный маршрут:</b></string>
+    <!-- Тянуть ID !--><string name="chas">Часовня в честь Святой Троицы</string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--><string name="aleksandra_nevskogo">Приход Александра Невского</string> <!-- -->
+    <!-- Тянуть ID !--><string name="name_placeholder">Дворец культуры машиностроителей</string>  <!-- -->
+    <!-- Тянуть ID !--><string name="address_placeholder">Карла Маркса, 70</string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--><string name="categ_placeholder">Дома / Дворцы культуры</string>  <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--><string name="closed_text">Закрыто. Откроется завтра в %1$s</string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--><string name="working_hours_placeholder">Ежедневно с 9:00 до 18:00</string> <!-- Тянуть ID !-->
+    <!-- Тянуть ID !--><string name="closed_until_placeholder">Закрыто до 9:00</string> <!-- Тянуть ID !-->
+    <string name="NewsPageNews">Новости</string>
+    <string name="NewsPageEvents">События</string>
 
 
-    <string name="tour_label"><b>Исторический центр: тур по церквям</b></string>
+    <string name="tour_label"><b>Исторический центр: тур по церквям</b></string> <!-- Тянуть ID !-->
     <string name="tour_desc">Познакомьтесь с культовыми сооружениями, предназначенными для
-    собрания прихожан, совершения богослужений и религиозных обрядов.</string>
+    собрания прихожан, совершения богослужений и религиозных обрядов.</string> <!-- Тянуть ID !-->
 
 
-    <string name="block"><b>1</b></string>
+
     <!-- Strings used for fragments for navigation -->
+    <string name="block"><b>1</b></string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="profile_photo_description">Фото профиля</string>
-    <string name="personal_data_button_description">Личные данные</string>
-    <string name="privacy_button_description">Конфиденциальность</string>
-    <string name="favorites_button_description">Избранное</string>
-    <string name="assistance_button_description">Помощь</string>
-    <string name="about_button_description">О приложении</string>
-    <string name="exit_profile_button_description">Выход из профиля</string>
+    <string name="ProfilePagePhotoDescription">Фото профиля</string>
+    <string name="ProfilePagePersonalDataButtonDescription">Личные данные</string>
+    <string name="ProfilePagePrivacyButtonDescription">Конфиденциальность</string>
+    <string name="ProfilePageFavoritesButtonDescription">Избранное</string>
+    <string name="ProfilePageAssistanceButtonDescription">Помощь</string>
+    <string name="ProfilePageAboutButtonDescription">О приложении</string>
+    <string name="ProfilePageExitProfileButtonDescription">Выход из профиля</string>
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

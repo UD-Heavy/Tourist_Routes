@@ -61,18 +61,18 @@ public class EventFragment extends Fragment {
         //      dataSourse.add(data.get("title"), convertBase64ToImage(data.get("image")))
         // }
         news_list = new ArrayList<>();
-        news_list.add(new MyData(getResources().getString(R.string.text), R.drawable.aleksandra_nevskogo));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.RegisterAndLoginPageText), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
         news_list.add(new MyData(getResources().getString(R.string.first_card), R.drawable.chas));
-        news_list.add(new MyData(getResources().getString(R.string.forgot_pass), R.drawable.aleksandra_nevskogo));
+        news_list.add(new MyData(getResources().getString(R.string.LoginPageForgotPass), R.drawable.aleksandra_nevskogo));
 
         linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
 

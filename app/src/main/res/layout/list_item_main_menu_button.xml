@@ -22,7 +22,7 @@
             android:textSize="13sp"
             android:padding="0dp"
             android:fontFamily="@font/inter_extrabold"
-            android:text="@string/more_news"
+            android:text="@string/ListItemMainMenuButtonMoreNews"
             app:backgroundTint="#E7E5E5" />
     </RelativeLayout>
     <!-- Your card content here -->

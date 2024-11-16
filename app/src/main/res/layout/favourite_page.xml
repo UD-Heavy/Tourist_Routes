@@ -21,7 +21,7 @@
             android:gravity="center"
             android:background="@android:color/transparent"
             android:fontFamily="@font/inter_extrabold"
-            android:text="@string/favouriteTitle"
+            android:text="@string/FavouritePageTitle"
             android:textColor="#333333"
             android:textSize="30sp" />
         <ImageButton
@@ -74,13 +74,13 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/favouritePlaces"
+                    android:text="@string/FavouritePagePlaces"
                     />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/favouriteTours"
+                    android:text="@string/FavouritePageTours"
                     />
 
             </com.google.android.material.tabs.TabLayout>

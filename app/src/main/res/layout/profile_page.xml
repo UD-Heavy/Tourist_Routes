@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
 
             android:fontFamily="@font/inter_extrabold"
-            android:text="@string/name_profile"
+            android:text="@string/ProfilePageNameProfile"
             android:textColor="#333333"
             android:textSize="30sp"
             android:layout_marginTop="20dp"
@@ -55,7 +55,7 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:src="@drawable/photoprof"
-                android:contentDescription="@string/profile_photo_description" />
+                android:contentDescription="@string/ProfilePagePhotoDescription" />
 
 
             <ImageView
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
 
             android:fontFamily="@font/inter_extrabold"
-            android:text="@string/name_settings"
+            android:text="@string/ProfilePageNameSettings"
             android:textColor="#333333"
             android:textSize="21sp"
             android:layout_marginTop="15dp"
@@ -174,7 +174,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/setting1button"
                 android:onClick="onClickPersonalData"
-                android:contentDescription="@string/personal_data_button_description" />
+                android:contentDescription="@string/ProfilePagePersonalDataButtonDescription" />
 
 
             <ImageButton
@@ -187,7 +187,7 @@
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting2button"
                 android:onClick="onClickPrivacy"
-                android:contentDescription="@string/privacy_button_description" />
+                android:contentDescription="@string/ProfilePagePrivacyButtonDescription" />
 
 
             <ImageButton
@@ -200,7 +200,7 @@
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting3button"
                 android:onClick="onClickFavorites"
-                android:contentDescription="@string/favorites_button_description" />
+                android:contentDescription="@string/ProfilePageFavoritesButtonDescription" />
 
             <ImageButton
                 android:id="@+id/field_settings4"
@@ -212,7 +212,7 @@
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting4button"
                 android:onClick="onClickAssistance"
-                android:contentDescription="@string/assistance_button_description" />
+                android:contentDescription="@string/ProfilePageAssistanceButtonDescription" />
 
 
             <ImageButton
@@ -225,7 +225,7 @@
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting5button"
                 android:onClick="onClickAbout"
-                android:contentDescription="@string/about_button_description" />
+                android:contentDescription="@string/ProfilePageAboutButtonDescription" />
 
 
         </RelativeLayout>
@@ -260,7 +260,7 @@
                 android:layout_marginTop="19dp"
                 android:background="@drawable/setting6button"
                 android:onClick="onClickExitProfile"
-                android:contentDescription="@string/exit_profile_button_description" />
+                android:contentDescription="@string/ProfilePageExitProfileButtonDescription" />
 
 
         </RelativeLayout>
