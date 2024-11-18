@@ -104,6 +104,9 @@ public class ObjectPage extends AppCompatActivity {
                 }
             });
 
+            // Установка фонового изображения
+            findViewById(android.R.id.content).setBackgroundResource(placeData.getBackgroundImageResId());
+
             // Дополнительные изображения
             rv = findViewById(R.id.images_view);
             if (placeData.getAdditionalImages() != null && !placeData.getAdditionalImages().isEmpty()) {
@@ -189,6 +192,13 @@ public class ObjectPage extends AppCompatActivity {
             this.data = data;
         }
 
+        /**
+         * Создает новый ViewHolder для элемента списка изображений.
+         *
+         * @param parent   родительский контейнер
+         * @param viewType тип представления
+         * @return новый экземпляр ViewHolder
+         */
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -200,6 +210,13 @@ public class ObjectPage extends AppCompatActivity {
 
         }
 
+        /**
+         * Связывает данные изображения с ViewHolder.
+         * Если позиция действительна, устанавливает изображение в ImageView.
+         *
+         * @param holder   ViewHolder для элемента списка
+         * @param position позиция элемента в списке
+         */
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             if (position < data.size()) {
@@ -210,6 +227,11 @@ public class ObjectPage extends AppCompatActivity {
             }
         }
 
+        /**
+         * Возвращает количество элементов в списке изображений.
+         *
+         * @return размер списка данных
+         */
         @Override
         public int getItemCount() {
             return data.size();

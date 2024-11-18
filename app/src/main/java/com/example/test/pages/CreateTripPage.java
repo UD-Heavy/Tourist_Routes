@@ -151,7 +151,15 @@ public class CreateTripPage extends Fragment {
 
         }
 
-
+        /**
+         * Создает новый ViewHolder для элемента списка.
+         * Inflate выполняется с использованием указанного layoutId,
+         * который определяется в зависимости от типа секции (популярное, категории или собственный маршрут).
+         *
+         * @param parent   родительский ViewGroup, в котором будет размещен новый View
+         * @param viewType тип представления элемента списка
+         * @return новый экземпляр MyViewHolder
+         */
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -159,6 +167,15 @@ public class CreateTripPage extends Fragment {
             return new MyViewHolder(view);
         }
 
+        /**
+         * Связывает данные с представлением элемента списка.
+         * Устанавливает заголовок, изображение и обработчики событий для элемента.
+         * Для секции "Популярное" добавляет обработчик клика для перехода на страницу объекта.
+         * Также настраивает кнопку избранного, если она присутствует в макете.
+         *
+         * @param holder   ViewHolder для элемента списка
+         * @param position позиция элемента в списке
+         */
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             MyData data = dataList.get(position);
@@ -166,7 +183,6 @@ public class CreateTripPage extends Fragment {
             holder.itemImage.setImageResource(data.getImageResId());
 
 
-            // Обработчик клика только для раздела "Популярное"
             if (isPopularSection) {
                 holder.itemImage.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -211,7 +227,11 @@ public class CreateTripPage extends Fragment {
         }
 
 
-        // Логика инициализации
+        /**
+         * Возвращает общее количество элементов в списке данных.
+         *
+         * @return размер списка элементов
+         */
         @Override
         public int getItemCount() {
             return dataList.size();
@@ -245,6 +265,8 @@ public class CreateTripPage extends Fragment {
             + "\"places\": ["
             + "  {"
             + "    \"title\": \"Часовня в честь Святой Троицы\","
+            + "    \"mainImage\": \"chas\","
+            + "    \"backgroundImage\": \"authorisation_backgroung_image1\","
             + "    \"address\": \"ул. Комсомольская, 21\","
             + "    \"category\": \"Святые места / Церкви\","
             + "    \"rating\": 1.4,"
@@ -263,6 +285,8 @@ public class CreateTripPage extends Fragment {
 
             + "  {"
             + "    \"title\": \"Приход Александра Невского\","
+            + "    \"mainImage\": \"aleksandra_nevskogo\","
+            + "    \"backgroundImage\": \"authorisation_backgroung_image1\","
             + "    \"address\": \"Название улицы 2\","
             + "    \"category\": \"Категория / подкатегория\","
             + "    \"rating\": 4.8,"
@@ -279,7 +303,13 @@ public class CreateTripPage extends Fragment {
             + "]"
             + "}";
 
-    // Добавляем метод инициализации как метод класса
+    /**
+     * Инициализирует данные карточки объекта из JSON-данных.
+     * Парсит JSON-строку, извлекая информацию о местах, включая:
+     * название, изображения (превью и бэкграунд), адрес, категорию, рейтинг, кол-во отзывов,
+     * часы работы, телефон.
+     * В случае ошибки парсинга создает список по-умолчанию.
+     */
     private void initializePopularData() {
 
         if (popularDataList == null) {
@@ -316,7 +346,11 @@ public class CreateTripPage extends Fragment {
 
                 MyData data = new MyData(
                         place.getString("title"),
-                        R.drawable.chas, // используем временное изображение
+                        getResources().getIdentifier(
+                                place.getString("mainImage"),
+                                "drawable",
+                                requireContext().getPackageName()
+                        ),
                         place.getString("address"),
                         place.getString("category"),
                         place.getDouble("rating"),
@@ -325,6 +359,14 @@ public class CreateTripPage extends Fragment {
                         place.getString("openUntil"),
                         place.getString("phoneNumber"),
                         additionalImages
+                );
+
+                data.setBackgroundImageResId(
+                        getResources().getIdentifier(
+                                place.getString("backgroundImage"),
+                                "drawable",
+                                requireContext().getPackageName()
+                        )
                 );
 
                 popularDataList.add(data);

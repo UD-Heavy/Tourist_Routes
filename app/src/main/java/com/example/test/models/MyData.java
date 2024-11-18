@@ -18,6 +18,7 @@ public class MyData implements Serializable {
     private String openUntil;       // Открыто до
     private String phoneNumber;     // Контактный телефон
     private ArrayList<Integer> additionalImages; // Дополнительные изображения
+    private int backgroundImageResId; // Задний фон
 
     public MyData(String title, int imageResId) {
 
@@ -88,6 +89,10 @@ public class MyData implements Serializable {
         return additionalImages;
     }
 
+    public int getBackgroundImageResId() {
+        return backgroundImageResId;
+    }
+
     // сеттеры для всех полей
     public void setTitle(String title) {
         this.title = title;
@@ -124,5 +129,9 @@ public class MyData implements Serializable {
 
     public void setAdditionalImages(ArrayList<Integer> additionalImages) {
         this.additionalImages = additionalImages;
+    }
+
+    public void setBackgroundImageResId(int backgroundImageResId) {
+        this.backgroundImageResId = backgroundImageResId;
     }
 }
